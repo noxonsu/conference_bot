@@ -207,6 +207,7 @@ bot.command("now", (ctx) => {
       ctx.replyWithHTML("Porgram list is empty");
       return false;
     }
+    
   } catch (error) {
     console.error(error);
   }
