@@ -19,8 +19,16 @@ const COMMANDS = [
     description: "List of sponsors",
   },
   {
+    command: "location",
+    description: "Location",
+  },
+  {
     command: "venue",
     description: "Venue",
+  },
+  {
+    command: "tickets",
+    description: "Buy tickets",
   },
   {
     command: "now",
@@ -65,6 +73,10 @@ Here's how I can help:
 /program - Show conference program
 /speakers - List of speakers
 /partners - List of partners
+/sponsors - List of sponsors
+/location - Location
+/venue - Venue
+/tickets - Buy tickets
 /now - Current events
 /add - Add something to the program
 /help - Show help/main menu`)
@@ -1247,7 +1259,7 @@ const partners_keyboard = () => {
 
 bot.command("partners", async (ctx) => {
   try {
-    updatePartners()
+    updatePartners();
     if (!partners_array.length) {
       ctx.replyWithHTML("Partners list is empty");
       return false;
@@ -1288,7 +1300,7 @@ function updatePartners() {
   );
 }
 
-updatePartners()
+updatePartners();
 
 bot.action("back_to_partners", async (ctx) => {
   ctx.reply("Partners :                                          .", {
@@ -1304,37 +1316,40 @@ let venues = [
     name: "Impact Area",
     description: "In this area, social impact organizations meet, show their work and join the giving economy. ",
     map: "",
-    callback_data: "venue_1"
+    callback_data: "venue_1",
   },
   {
     name: "Coffee Shop",
     description: "This is where you come in to drink coffee. A lot. ",
     map: "",
-    callback_data: "venue_2"
+    callback_data: "venue_2",
   },
   {
     name: "Co-Working Area",
-    description: "Our coworking area is an inclusive space for all attendees who are looking to create change by working together and innovating as a team.",
+    description:
+      "Our coworking area is an inclusive space for all attendees who are looking to create change by working together and innovating as a team.",
     map: "",
-    callback_data: "venue_3"
+    callback_data: "venue_3",
   },
   {
     name: "Wellness Area",
-    description: "We know that working in tech is stressful. Staying on top of your mental health is essential. Wellness area helping techs change for the better.",
+    description:
+      "We know that working in tech is stressful. Staying on top of your mental health is essential. Wellness area helping techs change for the better.",
     map: "",
-    callback_data: "venue_4"
+    callback_data: "venue_4",
   },
   {
     name: "Cultural Spaces",
-    description: "Artists and creators performing and showcasing their art. There's nothing better than freeing our minds through the power of art and creativity.",
+    description:
+      "Artists and creators performing and showcasing their art. There's nothing better than freeing our minds through the power of art and creativity.",
     map: "",
-    callback_data: "venue_5"
+    callback_data: "venue_5",
   },
   {
     name: "Food Station",
     description: "Food areas of ETHBarcelona are making the Earth a little greener by going plastic-free.",
     map: "",
-    callback_data: "venue_6"
+    callback_data: "venue_6",
   },
 ];
 
@@ -1348,7 +1363,6 @@ const venue_keyboard = venues.map((venue) => {
   return keyboard;
 });
 
-
 bot.command("venue", async (ctx) => {
   try {
     if (!venues) {
@@ -1358,7 +1372,7 @@ bot.command("venue", async (ctx) => {
     ctx.reply("Venue :                                             .", {
       reply_markup: {
         inline_keyboard: venue_keyboard,
-      }
+      },
     });
     await ctx.deleteMessage(ctx.update.message.message_id);
   } catch (error) {
@@ -1395,6 +1409,37 @@ bot.action("back_to_venue", async (ctx) => {
   await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
 });
 
+bot.command("location", (ctx) => {
+  ctx.replyWithHTML(
+    `📌 <b>Centre Convencions Internacional Barcelona (CCIB)</b>
+
+📢 SOON YOU WILL BE ABLE TO LIVE THE SOLARPUNK EXPERIENCE AT Centre Convencions Internacional Barcelona (CCIB 
+
+✏ ETHBarcelona takes place in one of the most beautiful and innovative cities in the world. It’s half-conference, half-culture and music festival, with opportunities to connect with the most forward-thinking individuals in the blockchain industry. 
+
+📍 International Barcelona Convention Center
+11-14 Plaça de Willy Brandt
+08019 Barcelona
+https://goo.gl/maps/2neYyS3cEKYJyiAQ8
+`,
+    Markup.inlineKeyboard([[Markup.button.callback("📍 View the conference venue", "back_to_venue")]])
+  );
+});
+
+bot.command("tickets", (ctx) => {
+  ctx.replyWithHTML(`<b>Eventbrite</b>
+📌 ETHBarcelona is an experience for web3 builders, leaders, thinkers, artists and creators in general that celebrate the values of decentralization, public goods and social impact.
+  
+💵 General Admission - $499.00
+
+📢 The tickets include a 3-day pass for ETHBarcelona.
+Sales end on Jul 6, 2022
+
+To buy a ticket follow the link 👇
+
+https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch#listings-root__event-location-map
+`)
+})
 
 let events_program = [];
 
@@ -1557,17 +1602,16 @@ bot.command("speakers", (ctx) => {
       return `
 🔹<b>${speaker.name}</b> | ${speaker.socialUrl !== "" ? `<a href='${speaker.socialUrl}'>Twitter</a>` : ""}
 ${speaker.title || speaker.subtitle || speaker.type}
-${speaker.url !== '' ? `${speaker.url} 
-` : speaker.url}`;
+${
+  speaker.url !== ""
+    ? `${speaker.url} 
+`
+    : speaker.url
+}`;
     });
-    ctx.replyWithHTML(
-      getSpeakers.join(
-        ``
-      ),
-      {
-        disable_web_page_preview: true,
-      }
-    );
+    ctx.replyWithHTML(getSpeakers.join(``), {
+      disable_web_page_preview: true,
+    });
   } catch (error) {
     console.error(error);
   }
