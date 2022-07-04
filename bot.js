@@ -2927,6 +2927,7 @@ ${
 📢  ${event[0].protocol}
 ⏳  ${event[0].startTime} - ${event[0].finishTime} | 🕓 ${event[0].duration}
 🗣  ${event[0].speaker}
+🎤 ${event[0].format}
     `
 }`;
       });
@@ -2998,7 +2999,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
@@ -3025,7 +3026,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Thursday, July 7th</b>
@@ -3048,7 +3049,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Friday, July 8th</b>
@@ -3072,7 +3073,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
@@ -3095,7 +3096,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Thursday, July 7th</b>
@@ -3118,7 +3119,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Friday, July 8th</b>
@@ -3142,7 +3143,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
@@ -3165,7 +3166,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Thursday, July 7th</b>
@@ -3188,7 +3189,7 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 ${el.speaker}
-`
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Friday, July 8th</b>
