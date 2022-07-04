@@ -1447,7 +1447,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "10h25 - 10h45",
+        startTime: "10h25",
+        finishTime: "10h45",
         duration: "20 min",
         format: "Talk",
         speaker: "Jahed Momand",
@@ -1458,7 +1459,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "10h50 - 11H35",
+        startTime: "10h50",
+        finishTime: "11H35",
         duration: "45 min",
         format: "Panel",
         speaker: "Simona Pop, Andy Tudhope, Chris Purifoy, Evin McMullen - Moderator: Colin Reynolds ",
@@ -1469,7 +1471,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "11H40 - 12h00",
+        startTime: "11H40",
+        finishTime: "12h00",
         duration: "20 min",
         format: "Talk",
         speaker: "Alona Shevchenko ",
@@ -1480,7 +1483,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture",
         stage: "",
-        time: "12h05 - 12h25",
+        startTime: "12h05",
+        finishTime: "12h25",
         duration: "20 min",
         format: "Talk",
         speaker: "Jeff Crypto & Amith Nirgunarthy (Internet Dollar)",
@@ -1491,7 +1495,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "12h30 - 13h30",
+        startTime: "12h30",
+        finishTime: "13h30",
         duration: "60 min",
         format: "Panel",
         speaker:
@@ -1504,7 +1509,8 @@ let events_program = {
         number: "",
         track: "Lunch Break",
         stage: "",
-        time: "13H20 - 14H30",
+        startTime: "13H20",
+        finishTime: "14H30",
         duration: "",
         format: "",
         speaker: "",
@@ -1515,7 +1521,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "14h30 - 14h50",
+        startTime: "14h30",
+        finishTime: "14h50",
         duration: "20 min",
         format: "Talk",
         speaker: "Ivan Liljeqvist",
@@ -1526,7 +1533,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "14h55 - 15h15",
+        startTime: "14h55",
+        finishTime: "15h15",
         duration: "20 min",
         format: "Talk",
         speaker: "Jarrad Hope",
@@ -1537,7 +1545,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "15h20 - 15h40",
+        startTime: "15h20",
+        finishTime: "15h40",
         duration: "20 min",
         format: "Talk",
         speaker: "Evin McMullen",
@@ -1548,7 +1557,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "15h45 - 16h15",
+        startTime: "15h45",
+        finishTime: "16h15",
         duration: "30 min",
         format: "Talk",
         speaker: "Stani Kulechov",
@@ -1559,7 +1569,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "16H20 - 16h40",
+        startTime: "16H20",
+        finishTime: "16h40",
         duration: "20 min",
         format: "Talk",
         speaker: "Skylar Weaver",
@@ -1568,9 +1579,11 @@ let events_program = {
       },
       {
         number: "6",
-        track: "Blockchain Tech & Scalability ",
+        startTrack: "Blockchain Tech & Scalability ",
+        finishTime: "",
         stage: "",
-        time: "16h45 - 17h05",
+        startTime: "16h45",
+        finishTime: "17h05",
         duration: "20 min",
         format: "Talk",
         speaker: "Leonardo Bautista Gomez",
@@ -1581,7 +1594,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "17h10 - 17h30",
+        startTime: "17h10",
+        finishTime: "17h30",
         duration: "20 min",
         format: "Talk",
         speaker: "Amir Taaki",
@@ -1592,7 +1606,8 @@ let events_program = {
         number: "4",
         track: "Legal",
         stage: "",
-        time: "17h35 - 18h20",
+        startTime: "17h35",
+        finishTime: "18h20",
         duration: "45 min",
         format: "Panel",
         speaker:
@@ -1606,7 +1621,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "10H30 - 10h50",
+        startTime: "10H30",
+        finishTime: "10h50",
         duration: "20 min",
         format: "Talk",
         speaker: "Lefteris Karapetsas",
@@ -1617,7 +1633,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "10h55 - 11h15",
+        startTime: "10h55",
+        finishTime: "11h15",
         duration: "20 min",
         format: "Talk",
         speaker: "Alberto Viera",
@@ -1628,7 +1645,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "11h20 - 11h45",
+        startTime: "11h20",
+        finishTime: "11h45",
         duration: "20 min",
         format: "Talk",
         speaker: "Michelle Thuy",
@@ -1639,7 +1657,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "11h55 - 12h15",
+        startTime: "11h55",
+        finishTime: "12h15",
         duration: "20 min",
         format: "Talk",
         speaker: "Miguel Piedrafita",
@@ -1650,7 +1669,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "12h20 - 12h40",
+        startTime: "12h20",
+        finishTime: "12h40",
         duration: "20 min",
         format: "Talk",
         speaker: "Shao-ku Tien",
@@ -1661,7 +1681,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "12h45 - 13h05",
+        startTime: "12h45",
+        finishTime: "13h05",
         duration: "20 min",
         format: "Talk",
         speaker: "Arnau Cube",
@@ -1673,7 +1694,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability ",
         stage: "",
-        time: "13h10 - 13h55",
+        startTime: "13h10",
+        finishTime: "13h55",
         duration: "40 min",
         format: "Panel",
         speaker: "Jack Sanford - Sherlock + Dyma Bourin - Hacken + Monier Jalal - Certik Moderated by Oliver Hörr",
@@ -1684,7 +1706,8 @@ let events_program = {
         number: "",
         track: "Lunch Break",
         stage: "",
-        time: "14h00 - 15H00",
+        startTime: "14h00",
+        finishTime: "13h55",
         duration: "",
         format: "",
         speaker: "",
@@ -1695,7 +1718,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture ",
         stage: "",
-        time: "14h45 - 15h05",
+        startTime: "14h45",
+        finishTime: "15h05",
         duration: "20 min",
         format: "Talk",
         speaker: "Kyle Burke",
@@ -1706,7 +1730,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture ",
         stage: "",
-        time: "15h10 - 15h30",
+        startTime: "15h10",
+        finishTime: "15h30",
         duration: "20 min",
         format: "Talk",
         speaker: "Joshua Lapidus",
@@ -1717,7 +1742,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "15h35 - 15h55",
+        startTime: "15h35",
+        finishTime: "15h55",
         duration: "20 min ",
         format: "Talk",
         speaker: "Beth McCarthy ",
@@ -1728,7 +1754,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "16h00 - 16h20",
+        startTime: "16h00",
+        finishTime: "16h20",
         duration: "20 min ",
         format: "Talk",
         speaker: "Bilal Saqib",
@@ -1739,7 +1766,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "16h25 - 17h10",
+        startTime: "16h25",
+        finishTime: "17h10",
         duration: "45 min ",
         format: "Panel",
         speaker: "Ale Borda, Eiman, Olier, Gustavo",
@@ -1750,7 +1778,8 @@ let events_program = {
         numer: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "17h15 - 17h35",
+        startTime: "17h15",
+        finishTime: "17h35",
         duration: "20 min",
         format: "Talk",
         speaker: "Juan",
@@ -1761,7 +1790,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "17h40 - 18h25",
+        startTime: "17h40",
+        finishTime: "18h25",
         duration: "45 min",
         format: "Panel",
         speaker:
@@ -1775,7 +1805,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "10h30 - 11h30",
+        startTime: "10h30",
+        finishTime: "11h30",
         duration: "45 min",
         format: "Workshop",
         speaker: "Evgeniy Bezuglyi",
@@ -1786,7 +1817,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "11h30 - 12h30",
+        startTime: "11h30",
+        finishTime: "12h30",
         duration: "45 min",
         format: "Workshop",
         speaker: "Patrick McCorry",
@@ -1797,7 +1829,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "12h30 - 13h30",
+        startTime: "12h30",
+        finishTime: "13h30",
         duration: "45 min",
         format: "Workshop",
         speaker: "Andy Tudhope",
@@ -1808,7 +1841,8 @@ let events_program = {
         number: "",
         track: "Lunch Break ",
         stage: "",
-        time: "13h00 - 15H00",
+        startTime: "13h00",
+        finishTime: "15h00",
         duration: "",
         format: "",
         speaker: "",
@@ -1819,7 +1853,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "15h00 - 16h00",
+        startTime: "15h00",
+        finishTime: "16h00",
         duration: "45 min",
         format: "Workshop",
         speaker: "Anna Kryukova",
@@ -1830,7 +1865,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "16h00 - 17h00",
+        startTime: "16h00",
+        finishTime: "17h00",
         duration: "45 min",
         format: "Workshop",
         speaker: "Sarah Wood",
@@ -1845,7 +1881,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "10H00 - 10H45",
+        startTime: "10h00",
+        finishTime: "10h45",
         duration: "45 min",
         format: "Panel",
         speaker:
@@ -1857,7 +1894,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "10h50 - 11h10 ",
+        startTime: "10h50",
+        finishTime: "11h10",
         duration: "20 min",
         format: "Talk",
         speaker: "James Farrel",
@@ -1868,7 +1906,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "11h15 - 12h00",
+        startTime: "11h15",
+        finishTime: "12h00",
         duration: "45 min",
         format: "Panel",
         speaker:
@@ -1881,7 +1920,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "12h05 - 12h25",
+        startTime: "12h05",
+        finishTime: "12h25",
         duration: "20 min",
         format: "Talk",
         speaker: "Manu Alzuru",
@@ -1892,7 +1932,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "12h30 - 12h50",
+        startTime: "12h30",
+        finishTime: "12h50",
         duration: "20 min",
         format: "Talk",
         speaker: "Scott Moore",
@@ -1903,7 +1944,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "12h55 - 13h15",
+        startTime: "12h55",
+        finishTime: "13h15",
         duration: "20 min",
         format: "Talk",
         speaker: "Ale Borda",
@@ -1914,7 +1956,8 @@ let events_program = {
         number: "",
         track: "Lunch Break",
         stage: "",
-        time: "13H35 - 15H00",
+        startTime: "13h35",
+        finishTime: "15h00",
         duration: "",
         format: "",
         speaker: "",
@@ -1925,7 +1968,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "15h00 - 15h20",
+        startTime: "15h00",
+        finishTime: "15h20",
         duration: "20 min",
         format: "Talk",
         speaker: "Elco",
@@ -1936,7 +1980,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "15H25 - 15H45",
+        startTime: "15h25",
+        finishTime: "15h45",
         duration: "20 min",
         format: "Talk",
         speaker: "Kelsie Nabben & Marta Poblet",
@@ -1947,7 +1992,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "15H50 - 16H10",
+        startTime: "15h50",
+        finishTime: "16h10",
         duration: "20 min",
         format: "Talk",
         speaker: "Willy Ogorzaly",
@@ -1958,7 +2004,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "16H15 - 16H35",
+        startTime: "16h15",
+        finishTime: "16h35",
         duration: "20 min",
         format: "Talk",
         speaker: "Livia Deschermayer",
@@ -1969,7 +2016,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "16H40 - 17H00",
+        startTime: "16h40",
+        finishTime: "17h00",
         duration: "20 min",
         format: "Talk",
         speaker: "Will Rowe",
@@ -1980,7 +2028,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "17H05 - 17H50",
+        startTime: "17h05",
+        finishTime: "17h50",
         duration: "45 min",
         format: "Panel",
         speaker:
@@ -1992,7 +2041,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "17H50 - 18H00",
+        startTime: "17h50",
+        finishTime: "18h00",
         duration: "10 min",
         format: "Other",
         speaker: "Elco",
@@ -2005,7 +2055,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "10h30 - 10h50",
+        startTime: "10h30",
+        finishTime: "10h50",
         duration: "20 min",
         format: "Talk",
         speaker: "David Tomu",
@@ -2016,7 +2067,8 @@ let events_program = {
         number: "8",
         track: "Finanzas",
         stage: "",
-        time: "10h55 - 11h15",
+        startTime: "10h55",
+        finishTime: "11h15",
         duration: "20 min",
         format: "Talk",
         speaker: "Diego Mazo",
@@ -2027,7 +2079,8 @@ let events_program = {
         number: "8",
         track: "Finanzas",
         stage: "",
-        time: "11h20 - 11h45",
+        startTime: "11h20",
+        finishTime: "11h45",
         duration: "20 min",
         format: "Talk",
         speaker: "Sebastian Serrano",
@@ -2038,7 +2091,8 @@ let events_program = {
         number: "8",
         track: "Finanzas",
         stage: "",
-        time: "11h50 - 12h10",
+        startTime: "11h50",
+        finishTime: "12h10",
         duration: "20 min",
         format: "Talk",
         speaker: "Francesco Renzi",
@@ -2049,7 +2103,8 @@ let events_program = {
         number: "4",
         track: "Legal",
         stage: "",
-        time: "12h15 - 12h35",
+        startTime: "12h15",
+        finishTime: "12h35",
         duration: "25 min",
         format: "Talk",
         speaker: "Cris Carrascosa",
@@ -2060,7 +2115,8 @@ let events_program = {
         number: "1",
         track: "Pensamiento Regenerativo",
         stage: "",
-        time: "12h40 - 13h00",
+        startTime: "12h40",
+        finishTime: "13h00",
         duration: "19 min",
         format: "Talk",
         speaker: "Clara Gromaches",
@@ -2071,7 +2127,8 @@ let events_program = {
         number: "2",
         track: "DAOs y la Cultura de la Coordinación",
         stage: "",
-        time: "13h05 - 13h25",
+        startTime: "13h05",
+        finishTime: "13h25",
         duration: "20 min",
         format: "Talk",
         speaker: "Sergio Garcia",
@@ -2082,7 +2139,8 @@ let events_program = {
         number: "2",
         track: "DAOs y la Cultura de la Coordinación",
         stage: "",
-        time: "13h30 - 13h50",
+        startTime: "13h30",
+        finishTime: "13h50",
         duration: "20 min",
         format: "Talk",
         speaker: "CatalanDAO - Oriol",
@@ -2093,7 +2151,8 @@ let events_program = {
         number: "",
         track: "Lanch Break",
         stage: "",
-        time: "13H35 - 14h30",
+        startTime: "13h35",
+        finishTime: "14h30",
         duration: "",
         format: "",
         speaker: "",
@@ -2104,7 +2163,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "15H00 - 15H20",
+        startTime: "15h00",
+        finishTime: "15h20",
         duration: "20 min",
         format: "Talk",
         speaker: "Reka",
@@ -2115,7 +2175,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "15H25 - 15H45",
+        startTime: "15h25",
+        finishTime: "15h45",
         duration: "20 min",
         format: "Talk",
         speaker: "Luca Mossini",
@@ -2126,7 +2187,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "15H50 - 16h10",
+        startTime: "15h50",
+        finishTime: "16h10",
         duration: "20 min",
         format: "Talk",
         speaker: "Ulysse Ramage",
@@ -2137,7 +2199,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "16h20 - 17h05",
+        startTime: "16h20",
+        finishTime: "17h05",
         duration: "45 min",
         format: "Talk",
         speaker: "Julien Bouteloup - StakeDAO + Anton Mozgovoy - Mover Moderated by Megan DeMatteo - Coindesk",
@@ -2148,7 +2211,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "17h10 - 117h30",
+        startTime: "17h10",
+        finishTime: "117h30",
         duration: "20 min",
         format: "Talk",
         speaker: "Zaki Manian",
@@ -2159,7 +2223,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "17H35 - 17h55",
+        startTime: "17h35",
+        finishTime: "17h55",
         duration: "20 min",
         format: "Talk",
         speaker: "Josef J",
@@ -2170,7 +2235,8 @@ let events_program = {
         number: "8",
         track: "Finance",
         stage: "",
-        time: "18h00 - 18h45",
+        startTime: "18h00",
+        finishTime: "18h45",
         duration: "45 min",
         format: "Panel",
         speaker: "Jahed Momand - Cerulean Ventures + Maria Alegre - Flori Ventures Moderat",
@@ -2183,7 +2249,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "10H00 - 10H45",
+        startTime: "10h00",
+        finishTime: "10h45",
         duration: "45 min",
         format: "Workshop",
         speaker: "Gorka Irazoqui",
@@ -2194,7 +2261,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "10H50 - 10H35",
+        startTime: "10h50",
+        finishTime: "10h35",
         duration: "45 min",
         format: "Workshop",
         speaker: "Nader Dabit",
@@ -2205,7 +2273,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture",
         stage: "",
-        time: "11h40 - 12h25",
+        startTime: "11h40",
+        finishTime: "12h25",
         duration: "45 min",
         format: "Workshop",
         speaker: "Angela Kreitenweis",
@@ -2216,7 +2285,8 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        time: "12h30 - 15h00",
+        startTime: "12h30",
+        finishTime: "15h00",
         duration: "2hrs 30 min",
         format: "Workshop",
         speaker: "Beth McCarthy, Sebnem Rusitschka",
@@ -2227,7 +2297,8 @@ let events_program = {
         number: "",
         track: "Lunch Break",
         stage: "",
-        time: "13h40 - 14h30",
+        startTime: "13h40",
+        finishTime: "14h30",
         duration: "",
         format: "",
         speaker: "",
@@ -2238,7 +2309,8 @@ let events_program = {
         number: "10",
         track: "Community",
         stage: "",
-        time: "15H30 - 17H30",
+        startTime: "15h30",
+        finishTime: "17h30",
         duration: "2hr",
         format: "Workshop",
         speaker: "Mahoneyy Turnbull, Blaise Turnbull Frothy DAO + Louis Giraux TwoPlus DAO",
@@ -2253,7 +2325,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "10H00 - 10H20",
+        startTime: "10h00",
+        finishTime: "10h20",
         duration: "20 min",
         format: "Talk",
         speaker: "Sasha Shilina",
@@ -2264,10 +2337,12 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "10h25 - 11h10",
+        startTime: "10h25",
+        finishTime: "11h10",
         duration: "45 min",
         format: "Talk",
-        speaker: "Naomie Abergel - artist + Haitham Mengad - StemsDAO + Guy Pirelli - Shrine House + Austin Worrel - KINO Moderated by Samuel del Real",
+        speaker:
+          "Naomie Abergel - artist + Haitham Mengad - StemsDAO + Guy Pirelli - Shrine House + Austin Worrel - KINO Moderated by Samuel del Real",
         protocol: "StemsDAO, Shrine House, KINO",
         title: "Web3 & Music",
       },
@@ -2275,7 +2350,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "11h15 - 11h35",
+        startTime: "11h15",
+        finishTime: "11h35",
         duration: "20 min",
         format: "Talk",
         speaker: "Miguel Faus",
@@ -2286,7 +2362,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "11h40 - 12h00",
+        startTime: "11h40",
+        finishTime: "12h00",
         duration: "20 min",
         format: "Talk",
         speaker: "Dave Krugman",
@@ -2297,7 +2374,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "12h05 - 12h25",
+        startTime: "12h05",
+        finishTime: "12h25",
         duration: "20 min",
         format: "Talk",
         speaker: "Camilla McFarland",
@@ -2308,10 +2386,12 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "12h35 - 13h20",
+        startTime: "12h35",
+        finishTime: "13h20",
         duration: "45 min",
         format: "Panel",
-        speaker: "Maryna Polyakowa - Max Planck Institute & FORESIGHT INSTITUTE Niklas Rindtorff - LAB DAO Savva Kerdemelis Vita DAO & Molecule Moderated by Aleksandra Smilek - Existential Hope ",
+        speaker:
+          "Maryna Polyakowa - Max Planck Institute & FORESIGHT INSTITUTE Niklas Rindtorff - LAB DAO Savva Kerdemelis Vita DAO & Molecule Moderated by Aleksandra Smilek - Existential Hope ",
         protocol: "SWARM, LAB.DAO, MOLECULE, DESCI WORLD, FORESIGHT INSTITUTE",
         title: "Desci NFTs",
       },
@@ -2319,7 +2399,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "Spanish Track",
-        time: "13h25 - 14h20",
+        startTime: "13h25",
+        finishTime: "14h20",
         duration: "45 min",
         format: "Panel",
         speaker: "Fabiana De Luca, Boxhead, Iridyan, Joanna Caraballo Moderated by Sabrina Bonini",
@@ -2330,7 +2411,8 @@ let events_program = {
         number: "",
         track: "Lanch break",
         stage: "",
-        time: "13H00 - 14H00",
+        startTime: "13h00",
+        finishTime: "14h00",
         duration: "",
         format: "",
         speaker: "",
@@ -2341,7 +2423,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "14h30 - 14h50",
+        startTime: "14h30",
+        finishTime: "14h50",
         duration: "20 min",
         format: "Talk",
         speaker: "Marc Johnson",
@@ -2352,7 +2435,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "14h55 - 15h15",
+        startTime: "14h55",
+        finishTime: "15h15",
         duration: "20 min",
         format: "Talk",
         speaker: "Griff Green",
@@ -2363,7 +2447,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "15h20 - 16h05",
+        startTime: "15h20",
+        finishTime: "16h05",
         duration: "45 min",
         format: "Panel",
         speaker: "Simona Pop - Status & Gitcoin + Scott Moore - Gitcoin + Felipe - The Daoist Moderated by Manu Alzuru",
@@ -2374,7 +2459,8 @@ let events_program = {
         number: "1",
         track: "Regenerative Thinking",
         stage: "",
-        time: "16H35 - 16h55",
+        startTime: "16h35",
+        finishTime: "16h55",
         duration: "20 min",
         format: "Talk",
         speaker: "Jordan Spence",
@@ -2385,7 +2471,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "",
+        startTime: "16h10 ",
+        finishTime: "16h30",
         duration: "20 min",
         format: "Talk",
         speaker: "Nader Dabit",
@@ -2396,7 +2483,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "17h00 - 17h45",
+        startTime: "17h00",
+        finishTime: "17h45",
         duration: "45 min",
         format: "Other",
         speaker: "Justin Holmes",
@@ -2407,7 +2495,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "17h50 - 18h35",
+        startTime: "17h50",
+        finishTime: "18h35",
         duration: "45 min",
         format: "Other",
         speaker: "RESERVED FOR AN UNCONFIRMED SURPRISE",
@@ -2420,7 +2509,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
         stage: "",
-        time: "10h00 - 10h20",
+        startTime: "10h00",
+        finishTime: "10h20",
         duration: "20 min",
         format: "Talk",
         speaker: "Sunny Satva",
@@ -2431,7 +2521,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
         stage: "",
-        time: "10h25 - 10h45",
+        startTime: "10h25",
+        finishTime: "10h45",
         duration: "20 min",
         format: "Talk",
         speaker: "Aaron Soskin",
@@ -2442,7 +2533,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "10h50 - 11h10",
+        startTime: "10h50",
+        finishTime: "11h10",
         duration: "20 min",
         format: "Talk",
         speaker: "Tamara",
@@ -2453,7 +2545,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
         stage: "",
-        time: "11h15 - 11h35",
+        startTime: "11h15",
+        finishTime: "11h35",
         duration: "20 min",
         format: "Talk",
         speaker: "Stellar Magnet",
@@ -2464,7 +2557,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
         stage: "",
-        time: "11h40 - 12h00",
+        startTime: "11h40",
+        finishTime: "12h00",
         duration: "20 min",
         format: "Talk",
         speaker: "Andrej Berlin",
@@ -2475,7 +2569,8 @@ let events_program = {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
         stage: "",
-        time: "12h05 - 13h00",
+        startTime: "12h05",
+        finishTime: "13h00",
         duration: "55 min",
         format: "Panel",
         speaker: "Stellar Magnet, Ale Borda, Zeugh, Nielsen Garcia Moderated by Elco",
@@ -2486,7 +2581,8 @@ let events_program = {
         number: "",
         track: "Lanch Break",
         stage: "",
-        time: "13H35 - 15H00",
+        startTime: "13h35",
+        finishTime: "15h00",
         duration: "",
         format: "",
         speaker: "",
@@ -2497,7 +2593,8 @@ let events_program = {
         number: "2",
         track: " DAOs & Coordination Culture",
         stage: "",
-        time: "14h30 - 14h50",
+        startTime: "14h30",
+        finishTime: "14h50",
         duration: "20 min",
         format: "Talk",
         speaker: "Alex P",
@@ -2508,7 +2605,8 @@ let events_program = {
         number: "2",
         track: " DAOs & Coordination Culture",
         stage: "",
-        time: "14h55 - 15h15",
+        startTime: "14h55",
+        finishTime: "15h15",
         duration: "20 min",
         format: "Talk",
         speaker: "-",
@@ -2519,7 +2617,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "15H20 - 15H40",
+        startTime: "15h20",
+        finishTime: "15h40",
         duration: "20 min",
         format: "Talk",
         speaker: "Alexander Guy",
@@ -2530,7 +2629,8 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "15H45 - 16H05",
+        startTime: "15h45",
+        finishTime: "16h05",
         duration: "20 min",
         format: "Talk",
         speaker: "Vittorio Rivabella",
@@ -2541,19 +2641,21 @@ let events_program = {
         number: "6",
         track: "Blockchain Tech & Scalability",
         stage: "",
-        time: "16h10 - 16h30",
+        startTime: "16h10",
+        finishTime: "16h30",
         duration: "20 min",
         format: "Talk",
         speaker: "Corey Petty",
         protocol: "Status",
         title: "How to ethically build public good infrastructure",
       },
-      
+
       {
         number: "5",
         track: "Education",
         stage: "",
-        time: "16h35 - 17h20",
+        startTime: "16h35",
+        finishTime: "17h20",
         duration: "45 min",
         format: "Panel",
         speaker: "Ashley Taylor Buck, Andrej Berlin, Livia Deschermayer, Artur Wdowiarski; (Moderator) Simone Ravaoili",
@@ -2564,7 +2666,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "17h25 - 18h05",
+        startTime: "17h25",
+        finishTime: "18h05",
         duration: "45 min",
         format: "Panel",
         speaker: "Pol Sendra Garcia - BGD Labs Matt Solomon - ScopeLift Moderated by Bogdan Habic - Tenderly",
@@ -2577,7 +2680,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "10H00 - 10H45",
+        startTime: "10h00",
+        finishTime: "10h45",
         duration: "45 min",
         format: "Workshop",
         speaker: "Gabriel Gruber",
@@ -2588,7 +2692,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "10h55 - 11H40",
+        startTime: "10h55",
+        finishTime: "11h40",
         duration: "45 min",
         format: "Workshop",
         speaker: "Aleix Cerdà Cucó",
@@ -2599,7 +2704,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "11H45 - 12H20",
+        startTime: "11h45",
+        finishTime: "12h20",
         duration: "45 min",
         format: "Workshop",
         speaker: "Camila Ramos",
@@ -2610,7 +2716,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "12H25 - 13H05",
+        startTime: "12h25",
+        finishTime: "13h05",
         duration: "45 min",
         format: "Workshop",
         speaker: "Solange Gueiros",
@@ -2621,7 +2728,8 @@ let events_program = {
         number: "5",
         track: "Education",
         stage: "",
-        time: "13h10 - 13h55",
+        startTime: "13h10",
+        finishTime: "13h55",
         duration: "45 min",
         format: "Workshop",
         speaker: "Hanno Cornelius",
@@ -2632,7 +2740,8 @@ let events_program = {
         number: "",
         track: "Lanch Break",
         stage: "",
-        time: "14H30 - 16H00",
+        startTime: "14h30",
+        finishTime: "16h00",
         duration: "",
         format: "",
         speaker: "",
@@ -2643,7 +2752,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "15H00 - 15H45",
+        startTime: "15h00",
+        finishTime: "15h45",
         duration: "45 min",
         format: "Workshop",
         speaker: "Aleks Smilek - Existential Hope + Niklas Rindtorff - LAB DAO",
@@ -2654,7 +2764,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        time: "15h50 - 16h35",
+        startTime: "15h50",
+        finishTime: "16h35",
         duration: "45 min",
         format: "Workshop",
         speaker: "-",
@@ -2680,10 +2791,6 @@ const program_by_day_keyboard = [
     {
       text: "8-July",
       callback_data: "program_by_day_8",
-    },
-    {
-      text: "All day",
-      callback_data: "program_by_all_day",
     },
   ],
 ];
@@ -2756,36 +2863,78 @@ bot.command("now", (ctx) => {
       ctx.replyWithHTML("Porgram list is empty");
       return false;
     }
+
     const date = new Date();
     const getTime = `${zeroTime(date.getHours())}:${zeroTime(date.getMinutes())}`;
     const getDate = date.getDate();
     const getMonth = date.getMonth();
-    const nowEvents = events_program.filter((events) => {
-      const startTime = events.time;
-      const finishTime = () => {
-        const timeArr = startTime.split(":");
-        return `${timeArr[0] * 1 + 1}:${timeArr[1]}`;
-      };
-      if (getTime >= startTime && getTime <= finishTime() && getDate == events.date && getMonth == 6) {
-        return events;
+    const newEvents = () => {
+      if (getDate == 6 && getMonth == 6) {
+        const events = Object.values(events_program.july6);
+        const nowArrayEvents = events.map((el) => {
+          return el.filter((event) => {
+            const startTime = event.startTime.split("h").join(":");
+            const finishTime = event.finishTime.split("h").join(":");
+            if (getTime >= startTime && getTime <= finishTime) {
+              return event;
+            }
+          });
+        });
+        return nowArrayEvents;
+      } else if (getDate == 7 && getMonth == 6) {
+        const events = Object.values(events_program.july7);
+        const nowArrayEvents = events.map((el) => {
+          return el.filter((event) => {
+            const startTime = event.startTime.split("h").join(":");
+            const finishTime = event.finishTime.split("h").join(":");
+            if (getTime >= startTime && getTime <= finishTime) {
+              return event;
+            }
+          });
+        });
+        return nowArrayEvents;
+      } else if (getDate == 8 && getMonth == 6) {
+        const events = Object.values(events_program.july8);
+        const nowArrayEvents = events.map((el) => {
+          return el.filter((event) => {
+            const startTime = event.startTime.split("h").join(":");
+            const finishTime = event.finishTime.split("h").join(":");
+            if (getTime >= startTime && getTime <= finishTime) {
+              return event;
+            }
+          });
+        });
+        return nowArrayEvents;
+      } else {
+        return false;
       }
-    });
-    if (nowEvents.length <= 0) {
-      ctx.replyWithHTML(`There are currently no active events
-Dial this command /program to see when the exhibition starts`);
+    };
+    let newNowEvents = [];
+
+    if (!newEvents()) {
+      ctx.replyWithHTML("Porgram list is empty");
       return false;
     }
-    const events = nowEvents.map((events) => {
-      return `
-⏳ <b>${events.time}</b>
-📎 ${events.title}
-🗣 ${events.speaker}
-📍 ${events.room}`;
+
+    newEvents().map((event) => {
+      const eventNow = event.map((el) => {
+        return `
+📌 ${!event[0].number ? "" : `${event[0].number}.`} ${event[0].track}
+${
+  !event[0].title
+    ? `⏳  ${[0].startTime} - ${event[0].finishTime}`
+    : `✏  ${event[0].title}
+📢  ${event[0].protocol}
+⏳  ${event[0].startTime} - ${event[0].finishTime} | 🕓 ${event[0].duration}
+🗣  ${event[0].speaker}
+🎤 ${event[0].format}
+    `
+}`;
+      });
+      newNowEvents = [...newNowEvents, ...eventNow];
     });
     ctx.replyWithHTML(`Now:
-${events.join(`
-`)}
-  `);
+${newNowEvents.join(``)}`);
   } catch (error) {
     console.error(error);
   }
@@ -2837,14 +2986,6 @@ bot.action("program_by_day_8", (ctx) => {
   }
 });
 
-bot.action("program_by_all_day", (ctx) => {
-  try {
-    bot.telegram.sendDocument(ctx.from.id, 'https://github.com/noxonsu/conference_bot/events.pdf')
-  } catch (error) {
-    console.error(error);
-  }
-});
-
 bot.action("sky_stage_6", (ctx) => {
   try {
     const events = events_program.july6.skyStage;
@@ -2853,12 +2994,12 @@ bot.action("sky_stage_6", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
@@ -2880,12 +3021,12 @@ bot.action("sky_stage_7", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Thursday, July 7th</b>
@@ -2903,12 +3044,12 @@ bot.action("sky_stage_8", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Friday, July 8th</b>
@@ -2927,12 +3068,12 @@ bot.action("forest_stage_6", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
@@ -2950,12 +3091,12 @@ bot.action("forest_stage_7", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Thursday, July 7th</b>
@@ -2973,12 +3114,12 @@ bot.action("forest_stage_8", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Friday, July 8th</b>
@@ -2997,12 +3138,12 @@ bot.action("co_creation_area_6", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
@@ -3020,12 +3161,12 @@ bot.action("co_creation_area_7", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Thursday, July 7th</b>
@@ -3043,12 +3184,12 @@ bot.action("co_creation_area_8", (ctx) => {
 📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
 ${
   !el.title
-    ? `⏳ ${el.time}`
+    ? `⏳ ${el.startTime} - ${el.finishTime}`
     : `✏ ${el.title}
 📢 ${el.protocol}
-⏳ ${el.time} | 🕓 ${el.duration}
-🗣 ${el.speaker}
-`
+⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
+🗣 Speaker: ${el.speaker}
+🎤 Format: ${el.format}`
 }`;
     });
     ctx.replyWithHTML(`<b>Friday, July 8th</b>
