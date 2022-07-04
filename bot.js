@@ -2998,7 +2998,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3025,7 +3025,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3048,7 +3048,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3072,7 +3072,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3095,7 +3095,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3118,7 +3118,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3142,7 +3142,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3165,7 +3165,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
@@ -3188,7 +3188,7 @@ ${
     : `✏ ${el.title}
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
-🗣 ${el.speaker}
+🗣 Speaker: ${el.speaker}
 🎤 Format: ${el.format}`
 }`;
     });
