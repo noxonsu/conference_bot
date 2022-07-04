@@ -514,7 +514,6 @@ let sponsors_array = [
     url: "https://shapeshift.com/",
     callback_data: "sponsors_27",
   },
-  // //////////////////
   {
     group: "Bronze Sponsors",
     name: "ZK Rollup DEX Protocol",
@@ -1438,10 +1437,1233 @@ Sales end on Jul 6, 2022
 To buy a ticket follow the link 👇
 
 https://www.eventbrite.com/e/ethbarcelona-tickets-344163862377?aff=ebdssbdestsearch#listings-root__event-location-map
-`)
-})
+`);
+});
 
-let events_program = [];
+let events_program = {
+  july6: {
+    skyStage: [
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "10h25 - 10h45",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Jahed Momand",
+        protocol: "Founding Partner - Cerulean Ventures, Steward - PrimeDAO",
+        title: "Regenerating the World with Ecological Assets in Decentralized Finance",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "10h50 - 11H35",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Simona Pop, Andy Tudhope, Chris Purifoy, Evin McMullen - Moderator: Colin Reynolds ",
+        protocol: "Gitcoin/Status/Schelling Point, Kernel, Disco.xyz, Learning Economy/Internet of Education ",
+        title: "Ed3 = The Intersection of Education and Web3",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "11H40 - 12h00",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Alona Shevchenko ",
+        protocol: "Founder of Ukraine DAO",
+        title: "How The Influence Of Crypto In Ukraine’s Resistance Goes Beyond Money",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture",
+        stage: "",
+        time: "12h05 - 12h25",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Jeff Crypto & Amith Nirgunarthy (Internet Dollar)",
+        protocol: "CULT DAO",
+        title: "Managing a DAO Treasury for the Revolution",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "12h30 - 13h30",
+        duration: "60 min",
+        format: "Panel",
+        speaker:
+          "Andrés Reisinger - Reisinger Studio + Maria Bernat - Casa Batlló + Beatriz Orleva - Christie's Spain Moderated by Carmen Ballesta ",
+        protocol: "Casa Batlló, Reisinger Studio, Christie's Spain",
+        title:
+          "The Technological Reinessance of Art + Premiere Documentary Living Architecture: Casa Batlló by Refik Anadol ",
+      },
+      {
+        number: "",
+        track: "Lunch Break",
+        stage: "",
+        time: "13H20 - 14H30",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "14h30 - 14h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Ivan Liljeqvist",
+        protocol: "Moralis",
+        title: "Building Full-Stack Web3 Dapps",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "14h55 - 15h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Jarrad Hope",
+        protocol: "Status",
+        title: "From Crypto-Currencies to Crypto-States",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "15h20 - 15h40",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Evin McMullen",
+        protocol: "Founder Disco.xyz",
+        title: "Data Backpacks: Metaverse fun beyond wallets",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "15h45 - 16h15",
+        duration: "30 min",
+        format: "Talk",
+        speaker: "Stani Kulechov",
+        protocol: "Aave, Lens Protoco",
+        title: "Entering the era of Web3 Social",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "16H20 - 16h40",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Skylar Weaver",
+        protocol: "Ethereum Foundation",
+        title: "Proof of Stake and The Merge: Why, What, How, Wen?",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "16h45 - 17h05",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Leonardo Bautista Gomez",
+        protocol: "MigaLabs",
+        title: "Analysis of Ethereum2 Consensus Clients",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "17h10 - 17h30",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Amir Taaki",
+        protocol: "DarkFi",
+        title: "DarkFi: Anonymous Engineering for Dank Net Markets",
+      },
+      {
+        number: "4",
+        track: "Legal",
+        stage: "",
+        time: "17h35 - 18h20",
+        duration: "45 min",
+        format: "Panel",
+        speaker:
+          "Marina Markezic - EU Crypto Initiative + Raul Calvo + Isabela Delgado + Daniel Marin + Ana María Martínez-Pina Moderated by Anja Blaj ",
+        protocol: "EU Crypto Initiative",
+        title: "EU Regulatory Panel",
+      },
+    ],
+    forestStage: [
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "10H30 - 10h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Lefteris Karapetsas",
+        protocol: "Rotki",
+        title: "Building local-first opensource apps",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "10h55 - 11h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Alberto Viera",
+        protocol: "Moonbeam",
+        title: "Bootstrapping an Interoperable Ecosystem on Polkadot ",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "11h20 - 11h45",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Michelle Thuy",
+        protocol: "Swarm City",
+        title: "Unstoppable marketplaces",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "11h55 - 12h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Miguel Piedrafita",
+        protocol: "Worldcoin, ConstitutionDAO",
+        title: "How to Anonymously Identify 9 billion humans",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "12h20 - 12h40",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Shao-ku Tien",
+        protocol: "Perpetual Protocol",
+        title: "Clean Smart Contract Practices",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "12h45 - 13h05",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Arnau Cube",
+        protocol: "Aragon Research",
+        title:
+          "Clean Smart Contract Practices 12h45 - 13h05 20 min Talk Arnau Cube Aragon Research Offchain Voting with Onchain Trustless Execution",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability ",
+        stage: "",
+        time: "13h10 - 13h55",
+        duration: "40 min",
+        format: "Panel",
+        speaker: "Jack Sanford - Sherlock + Dyma Bourin - Hacken + Monier Jalal - Certik Moderated by Oliver Hörr",
+        protocol: "Sherlock, Hacken, Certik, Hats. Finance ",
+        title: "Web3 Security in 2022",
+      },
+      {
+        number: "",
+        track: "Lunch Break",
+        stage: "",
+        time: "14h00 - 15H00",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture ",
+        stage: "",
+        time: "14h45 - 15h05",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Kyle Burke",
+        protocol: "Mochi",
+        title: "Iterative DAOvelopment",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture ",
+        stage: "",
+        time: "15h10 - 15h30",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Joshua Lapidus",
+        protocol: "Opolis, SporkDAO/ETHDenver, MetaCartel, Metamask, MetaFactory, RaidGuild, Rigor",
+        title: "Gamification of boring things",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "15h35 - 15h55",
+        duration: "20 min ",
+        format: "Talk",
+        speaker: "Beth McCarthy ",
+        protocol: "Toucan Protocol",
+        title: "Co-creating Standard & Practices for Sustainable Organizations ",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "16h00 - 16h20",
+        duration: "20 min ",
+        format: "Talk",
+        speaker: "Bilal Saqib",
+        protocol: "Tayaba.org",
+        title: "NFTs for Social Good: A Personal Journey",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "16h25 - 17h10",
+        duration: "45 min ",
+        format: "Panel",
+        speaker: "Ale Borda, Eiman, Olier, Gustavo",
+        protocol: "Fifty Years, Crowdmuse, Memex, Protein ",
+        title: "Aligning Economic Incentives to be Regenerative by Design",
+      },
+      {
+        numer: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "17h15 - 17h35",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Juan",
+        protocol: "Marker DAO",
+        title: "Fix the Money, Fix our World",
+      },
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "17h40 - 18h25",
+        duration: "45 min",
+        format: "Panel",
+        speaker:
+          "Lauren Luz - Giveth + Jori Ambruster - EthicHub + James Beck - Metamask/ Consensys + Moderated by Marcus AM",
+        protocol: "Giveth, EthicHub, Metamask/Consensys",
+        title: "Regen Mentalities - Impact IRL Panel",
+      },
+    ],
+    coCreationStage: [
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "10h30 - 11h30",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Evgeniy Bezuglyi",
+        protocol: "Hacken",
+        title: "Security / Data Privacy",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "11h30 - 12h30",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Patrick McCorry",
+        protocol: "Infura",
+        title: "Intro to Bridges & Layer 2",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "12h30 - 13h30",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Andy Tudhope",
+        protocol: "Kernel Community",
+        title: "Freely Open Education",
+      },
+      {
+        number: "",
+        track: "Lunch Break ",
+        stage: "",
+        time: "13h00 - 15H00",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "15h00 - 16h00",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Anna Kryukova",
+        protocol: "Celo Foundation",
+        title: "Onboarding to Web3",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "16h00 - 17h00",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Sarah Wood",
+        protocol: "Upstream",
+        title: "DAO 101",
+      },
+    ],
+  },
+  july7: {
+    skyStage: [
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "10H00 - 10H45",
+        duration: "45 min",
+        format: "Panel",
+        speaker:
+          "Tracey Owen - H.E.R DAO + Cassie Lawrence - WomenRiseNFT + Hana Kanjaa - OlympusDAO + Mahoney Turnbull - FrothyDAO Moderated by Violeta Valcheva",
+        protocol: "H.E.R DAO, WomenRise NFT, OlympusDAO, FrothyDAO",
+        title: "Creating an Inclusive, Accesible Ecosystem Panel",
+      },
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "10h50 - 11h10 ",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "James Farrel",
+        protocol: "Toucan Protocol",
+        title: "Regenerative Economies",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "11h15 - 12h00",
+        duration: "45 min",
+        format: "Panel",
+        speaker:
+          "Andre Vanyi Robin - NOZAMA Andrew Funk - Homeless Entrepreneur Ievgeniia Bodnya - Reforms Delivery Office of the Cabinet of Ministers of Ukraine Max Semenchuk - 4ireLabs Arman Kazanjian Fraile - Brand4Impact Moderated by Wendy Feher",
+        protocol:
+          "NOZAMA, Homeless Entrepreneur, Reforms Delivery Office of the Cabinet of Ministers of Ukraine, 4ireLabs, Brand4Impact",
+        title: "Cryptophilantropy: How to Save the World with Web3",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "12h05 - 12h25",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Manu Alzuru",
+        protocol: "DoinGud",
+        title: "Decentralized Social Impact Infrastructure",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "12h30 - 12h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Scott Moore",
+        protocol: "Gitcoin",
+        title: "Web3 is solarpunk: reimagining public goods",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "12h55 - 13h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Ale Borda",
+        protocol: "Fifty Years",
+        title: "Syntrophy -- The Essence of ImpactDAOs",
+      },
+      {
+        number: "",
+        track: "Lunch Break",
+        stage: "",
+        time: "13H35 - 15H00",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "15h00 - 15h20",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Elco",
+        protocol: "The Daoist",
+        title: "Awareness of the Continuum - Facilitation and DAOs",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "15H25 - 15H45",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Kelsie Nabben & Marta Poblet",
+        protocol: "RMIT University / BlockScience (Kelsie) & RMIT University (Marta)",
+        title: "Blockchains, Fractal Governance, & DAO Evolution",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "15H50 - 16H10",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Willy Ogorzaly",
+        protocol: "ShapeShift & Giveth",
+        title: "Scaling DAOs: Vertically, Horizontally, and into other Dimensions",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "16H15 - 16H35",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Livia Deschermayer",
+        protocol: "Commons Stack and Token Engineering Commons",
+        title: "Reward Systems: The Heart of DAOs",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "16H40 - 17H00",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Will Rowe",
+        protocol: "Protein",
+        title: "100 Days a DAO",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "17H05 - 17H50",
+        duration: "45 min",
+        format: "Panel",
+        speaker:
+          "Lawrence Wang - Coordinape + Aaron Soskin - Govern + Livia (Commons Stack, Token Engineering Commons) Andrej Berlin",
+        protocol: "Coordinape, Govern, Commons Stack, Token Engineering Commons ",
+        title: "Reward Systems Galore",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "17H50 - 18H00",
+        duration: "10 min",
+        format: "Other",
+        speaker: "Elco",
+        protocol: "The Daoist",
+        title: "After-talk Auction",
+      },
+    ],
+    forestStage: [
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "10h30 - 10h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "David Tomu",
+        protocol: "Mintgate, Rungie",
+        title: "Cultura Tokenizada: más allá de lo financiero",
+      },
+      {
+        number: "8",
+        track: "Finanzas",
+        stage: "",
+        time: "10h55 - 11h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Diego Mazo",
+        protocol: "Tropykus",
+        title: "Cómo crear productos Defi en LATAM para maximizar su adopción",
+      },
+      {
+        number: "8",
+        track: "Finanzas",
+        stage: "",
+        time: "11h20 - 11h45",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Sebastian Serrano",
+        protocol: "Ripio",
+        title: "Web3 en Latam",
+      },
+      {
+        number: "8",
+        track: "Finanzas",
+        stage: "",
+        time: "11h50 - 12h10",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Francesco Renzi",
+        protocol: "Superfluid",
+        title: "Streams, una nueva primitiva",
+      },
+      {
+        number: "4",
+        track: "Legal",
+        stage: "",
+        time: "12h15 - 12h35",
+        duration: "25 min",
+        format: "Talk",
+        speaker: "Cris Carrascosa",
+        protocol: "ATH21",
+        title: "Crypto Legal by Design",
+      },
+      {
+        number: "1",
+        track: "Pensamiento Regenerativo",
+        stage: "",
+        time: "12h40 - 13h00",
+        duration: "19 min",
+        format: "Talk",
+        speaker: "Clara Gromaches",
+        protocol: "dOrg",
+        title: "Un futuro Solarpunk: Aprendizajes del cohousing y la vivienda cooperativa para las DAOs",
+      },
+      {
+        number: "2",
+        track: "DAOs y la Cultura de la Coordinación",
+        stage: "",
+        time: "13h05 - 13h25",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Sergio Garcia",
+        protocol: "FLOC",
+        title: "Brand3: El poder de la comunidad en la construcción de marcas del ecosistema Web3",
+      },
+      {
+        number: "2",
+        track: "DAOs y la Cultura de la Coordinación",
+        stage: "",
+        time: "13h30 - 13h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "CatalanDAO - Oriol",
+        protocol: "Catalan DAO",
+        title: "CatalanDAO, explorando las fronteras de las DAO ciudadanas (cat)",
+      },
+      {
+        number: "",
+        track: "Lanch Break",
+        stage: "",
+        time: "13H35 - 14h30",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "15H00 - 15H20",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Reka",
+        protocol: "guild.xyz",
+        title: "Building strength into organizations",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "15H25 - 15H45",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Luca Mossini",
+        protocol: "Avantgarde Finance",
+        title: "Why DeFi asset management is increasingly important for DAOs and CeFi players",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "15H50 - 16h10",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Ulysse Ramage",
+        protocol: "APWine",
+        title: "Yield Futurization: Unlocking Tomorrow's Production, Today",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "16h20 - 17h05",
+        duration: "45 min",
+        format: "Talk",
+        speaker: "Julien Bouteloup - StakeDAO + Anton Mozgovoy - Mover Moderated by Megan DeMatteo - Coindesk",
+        protocol: "Stake DAO, Mover",
+        title: "Economic Longevity Panel",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "17h10 - 117h30",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Zaki Manian",
+        protocol: "Sommelier",
+        title: "How DeFi Goes Mainstream: Bridging the Gap Between Degens and Regulators",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "17H35 - 17h55",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Josef J",
+        protocol: "PWN, Ethereum Foundation",
+        title: "Mortgages for crypto natives",
+      },
+      {
+        number: "8",
+        track: "Finance",
+        stage: "",
+        time: "18h00 - 18h45",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Jahed Momand - Cerulean Ventures + Maria Alegre - Flori Ventures Moderat",
+        protocol: "Flori Ventures, Cerulean Ventures, Node Capital",
+        title: "Bear Market Survival Guide - a VC Perspective",
+      },
+    ],
+    coCreationStage: [
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "10H00 - 10H45",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Gorka Irazoqui",
+        protocol: "Moonbeam",
+        title: "Enabling cross-chain assets (and more) on Moonbeam with XCM",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "10H50 - 10H35",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Nader Dabit",
+        protocol: "Celestia",
+        title: "Introduction to Arweave",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture",
+        stage: "",
+        time: "11h40 - 12h25",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Angela Kreitenweis",
+        protocol: "TE Academy",
+        title: "Let’s see… is your DAO healthy?",
+      },
+      {
+        number: "7",
+        track: "Impact & Public Goods",
+        stage: "",
+        time: "12h30 - 15h00",
+        duration: "2hrs 30 min",
+        format: "Workshop",
+        speaker: "Beth McCarthy, Sebnem Rusitschka",
+        protocol: "Toucan Protocol (Beth), Freeelio & #Token Engineering (Sebnem)",
+        title: "SoLARPunk: Let the Games Begin",
+      },
+      {
+        number: "",
+        track: "Lunch Break",
+        stage: "",
+        time: "13h40 - 14h30",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "10",
+        track: "Community",
+        stage: "",
+        time: "15H30 - 17H30",
+        duration: "2hr",
+        format: "Workshop",
+        speaker: "Mahoneyy Turnbull, Blaise Turnbull Frothy DAO + Louis Giraux TwoPlus DAO",
+        protocol: "Frothy DAO",
+        title: "Community Alchemy",
+      },
+    ],
+  },
+  july8: {
+    skyStage: [
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "10H00 - 10H20",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Sasha Shilina",
+        protocol: "Paradigm, Humanode",
+        title: "NFTs: A new mediator standard for creative industries communication",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "10h25 - 11h10",
+        duration: "45 min",
+        format: "Talk",
+        speaker: "Naomie Abergel - artist + Haitham Mengad - StemsDAO + Guy Pirelli - Shrine House + Austin Worrel - KINO Moderated by Samuel del Real",
+        protocol: "StemsDAO, Shrine House, KINO",
+        title: "Web3 & Music",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "11h15 - 11h35",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Miguel Faus",
+        protocol: "Calladita",
+        title: "How NFTs can revolutionize the Film industry",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "11h40 - 12h00",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Dave Krugman",
+        protocol: "Artist, ALLSHIPS.CO",
+        title: "NFTs as a capture mechanism for community capital",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "12h05 - 12h25",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Camilla McFarland",
+        protocol: "Mojito",
+        title: "How big brands are entering web3 - the next great adoption of NFTs",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "12h35 - 13h20",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Maryna Polyakowa - Max Planck Institute & FORESIGHT INSTITUTE Niklas Rindtorff - LAB DAO Savva Kerdemelis Vita DAO & Molecule Moderated by Aleksandra Smilek - Existential Hope ",
+        protocol: "SWARM, LAB.DAO, MOLECULE, DESCI WORLD, FORESIGHT INSTITUTE",
+        title: "Desci NFTs",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "Spanish Track",
+        time: "13h25 - 14h20",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Fabiana De Luca, Boxhead, Iridyan, Joanna Caraballo Moderated by Sabrina Bonini",
+        protocol: "Hispanic women creators, Cripto Es Cultura",
+        title: "NFTs: Oportunidades y retos para las mujeres de habla hispana",
+      },
+      {
+        number: "",
+        track: "Lanch break",
+        stage: "",
+        time: "13H00 - 14H00",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "14h30 - 14h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Marc Johnson",
+        protocol: "Protocol Labs - Filecoin Green",
+        title: "Decarbonize crypto, decarbonize the world",
+      },
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "14h55 - 15h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Griff Green",
+        protocol: "Giveth, Token Engineering Commons, Commons Stack, Dappnode, brightID, 1hive, Gitcoin, ENS",
+        title: "Regen Economies: The Cryptoanarchist's Dream",
+      },
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "15h20 - 16h05",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Simona Pop - Status & Gitcoin + Scott Moore - Gitcoin + Felipe - The Daoist Moderated by Manu Alzuru",
+        protocol: "Status, Gitcoin, The Daoist",
+        title: "Public Goods",
+      },
+      {
+        number: "1",
+        track: "Regenerative Thinking",
+        stage: "",
+        time: "16H35 - 16h55",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Jordan Spence",
+        protocol: "MetaMask & ConsenSys",
+        title: "Keep Your Hands and Feet Inside the Rollercoaster at All Times",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Nader Dabit",
+        protocol: "Celestia",
+        title: "Building Fully Decentralized Full Stack Applications",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "17h00 - 17h45",
+        duration: "45 min",
+        format: "Other",
+        speaker: "Justin Holmes",
+        protocol: "Threshold",
+        title: "Music Performance",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "17h50 - 18h35",
+        duration: "45 min",
+        format: "Other",
+        speaker: "RESERVED FOR AN UNCONFIRMED SURPRISE",
+        protocol: "RESERVED FOR AN UNCONFIRMED SURPRISE",
+        title: "RESERVED FOR AN UNCONFIRMED SURPRISE",
+      },
+    ],
+    forestStage: [
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist ",
+        stage: "",
+        time: "10h00 - 10h20",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Sunny Satva",
+        protocol: "Black Leaders DAO, Cryptolingo DAO",
+        title: "Increasing Diversity and Sustainability in web3 through DAOs",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist ",
+        stage: "",
+        time: "10h25 - 10h45",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Aaron Soskin",
+        protocol: "Govern",
+        title: "Hot DAO (contributor) Summer",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "10h50 - 11h10",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Tamara",
+        protocol: "The Commons Stack",
+        title: "The solarpunk future beyond state and market",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist ",
+        stage: "",
+        time: "11h15 - 11h35",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Stellar Magnet",
+        protocol: "Black Sky & DarkFi",
+        title: "Transformative Autonomous Organizations: a new DAO Subclass for a Stateless Lunarpunk Society",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist ",
+        stage: "",
+        time: "11h40 - 12h00",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Andrej Berlin",
+        protocol: "Deep Work",
+        title: "First principles for DAO design",
+      },
+      {
+        number: "2",
+        track: "DAOs & Coordination Culture by The Daoist",
+        stage: "",
+        time: "12h05 - 13h00",
+        duration: "55 min",
+        format: "Panel",
+        speaker: "Stellar Magnet, Ale Borda, Zeugh, Nielsen Garcia Moderated by Elco",
+        protocol: "Black Sky & DarkFi, Fifty Years, JuiceboxDAO",
+        title: "Wildest Ideas in DAOs",
+      },
+      {
+        number: "",
+        track: "Lanch Break",
+        stage: "",
+        time: "13H35 - 15H00",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "2",
+        track: " DAOs & Coordination Culture",
+        stage: "",
+        time: "14h30 - 14h50",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Alex P",
+        protocol: "Aut",
+        title: "Trifolds (Role-sets) as the foundation for Autonomy & Coordination in DAOs.",
+      },
+      {
+        number: "2",
+        track: " DAOs & Coordination Culture",
+        stage: "",
+        time: "14h55 - 15h15",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "-",
+        protocol: "-",
+        title: "-",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "15H20 - 15H40",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Alexander Guy",
+        protocol: "Zerion",
+        title: "The First Billion: Unlocking the Next Wave of Web3 Adopters",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "15H45 - 16H05",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Vittorio Rivabella",
+        protocol: "Alchemy",
+        title: "How web3 empowers digital citizenship and how this tech is the next step towards globalisation",
+      },
+      {
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "",
+        time: "16h10 - 16h30",
+        duration: "20 min",
+        format: "Talk",
+        speaker: "Corey Petty",
+        protocol: "Status",
+        title: "How to ethically build public good infrastructure",
+      },
+      
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "16h35 - 17h20",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Ashley Taylor Buck, Andrej Berlin, Livia Deschermayer, Artur Wdowiarski; (Moderator) Simone Ravaoili",
+        protocol: "ReSource, Deep Skills, CommonStack, Ceramic, Parchment",
+        title: "The Impact of Reputation Protocols",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "17h25 - 18h05",
+        duration: "45 min",
+        format: "Panel",
+        speaker: "Pol Sendra Garcia - BGD Labs Matt Solomon - ScopeLift Moderated by Bogdan Habic - Tenderly",
+        protocol: "BGD Labs, ScopeLift, Tenderly",
+        title: "DAO upgrades are hard: How to be sure your DAO is operating the way you expect it",
+      },
+    ],
+    coCreationStage: [
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "10H00 - 10H45",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Gabriel Gruber",
+        protocol: "Exactly Finance",
+        title: "Time to Value DeFi",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "10h55 - 11H40",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Aleix Cerdà Cucó",
+        protocol: "Kleros",
+        title: "Self-regulate: Don't give governments a chance",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "11H45 - 12H20",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Camila Ramos",
+        protocol: "The Graph",
+        title: "GraphQL in Web3: Building open APIs on Ethereum",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "12H25 - 13H05",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Solange Gueiros",
+        protocol: "Chainlink Labs",
+        title: "Connecting Smart Contracts to the Real World",
+      },
+      {
+        number: "5",
+        track: "Education",
+        stage: "",
+        time: "13h10 - 13h55",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Hanno Cornelius",
+        protocol: "Status",
+        title: "Decentralized Communication",
+      },
+      {
+        number: "",
+        track: "Lanch Break",
+        stage: "",
+        time: "14H30 - 16H00",
+        duration: "",
+        format: "",
+        speaker: "",
+        protocol: "",
+        title: "",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "15H00 - 15H45",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "Aleks Smilek - Existential Hope + Niklas Rindtorff - LAB DAO",
+        protocol: "Existential Hope by Foresight, LabDAO",
+        title: "Bridging Art & Science - Artists & Scientists in Research",
+      },
+      {
+        number: "3",
+        track: "Art, NFTs, Innovation & Shaping Culture",
+        stage: "",
+        time: "15h50 - 16h35",
+        duration: "45 min",
+        format: "Workshop",
+        speaker: "-",
+        protocol: "-",
+        title: "-",
+      },
+    ],
+  },
+};
 
 const program_by_day_keyboard = [
   [
@@ -1462,6 +2684,60 @@ const program_by_day_keyboard = [
     {
       text: "All day",
       callback_data: "program_by_all_day",
+    },
+  ],
+];
+const stage_keyboard_6 = [
+  [
+    {
+      text: "Sky Stage",
+      callback_data: "sky_stage_6",
+    },
+    {
+      text: "Forest Stage",
+      callback_data: "forest_stage_6",
+    },
+  ],
+  [
+    {
+      text: "Co-Creation Area",
+      callback_data: "co_creation_area_6",
+    },
+  ],
+];
+const stage_keyboard_7 = [
+  [
+    {
+      text: "Sky Stage",
+      callback_data: "sky_stage_7",
+    },
+    {
+      text: "Forest Stage",
+      callback_data: "forest_stage_7",
+    },
+  ],
+  [
+    {
+      text: "Co-Creation Area",
+      callback_data: "co_creation_area_7",
+    },
+  ],
+];
+const stage_keyboard_8 = [
+  [
+    {
+      text: "Sky Stage",
+      callback_data: "sky_stage_8",
+    },
+    {
+      text: "Forest Stage",
+      callback_data: "forest_stage_8",
+    },
+  ],
+  [
+    {
+      text: "Co-Creation Area",
+      callback_data: "co_creation_area_8",
     },
   ],
 ];
@@ -1525,6 +2801,262 @@ bot.command("program", (ctx) => {
       inline_keyboard: program_by_day_keyboard,
     },
   });
+});
+
+bot.action("program_by_day_6", (ctx) => {
+  try {
+    ctx.reply("Select scene:", {
+      reply_markup: {
+        inline_keyboard: stage_keyboard_6,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("program_by_day_7", (ctx) => {
+  try {
+    ctx.reply("Select scene:", {
+      reply_markup: {
+        inline_keyboard: stage_keyboard_7,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("program_by_day_8", (ctx) => {
+  try {
+    ctx.reply("Select scene:", {
+      reply_markup: {
+        inline_keyboard: stage_keyboard_8,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+bot.action("program_by_all_day", (ctx) => {
+  try {
+    bot.telegram.sendDocument(ctx.from.id, 'https://github.com/noxonsu/conference_bot/events.pdf')
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+bot.action("sky_stage_6", (ctx) => {
+  try {
+    const events = events_program.july6.skyStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
+
+📌 Welcome
+🕓 10H00 - 10H20 | 20 min
+✏ Welcome speech + ETHBarcelona Code of Conduct
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("sky_stage_7", (ctx) => {
+  try {
+    const events = events_program.july7.skyStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Thursday, July 7th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("sky_stage_8", (ctx) => {
+  try {
+    const events = events_program.july8.skyStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Friday, July 8th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+bot.action("forest_stage_6", (ctx) => {
+  try {
+    const events = events_program.july6.forestStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("forest_stage_7", (ctx) => {
+  try {
+    const events = events_program.july7.forestStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Thursday, July 7th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("forest_stage_8", (ctx) => {
+  try {
+    const events = events_program.july8.forestStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Friday, July 8th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+bot.action("co_creation_area_6", (ctx) => {
+  try {
+    const events = events_program.july6.coCreationStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("co_creation_area_7", (ctx) => {
+  try {
+    const events = events_program.july7.coCreationStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Thursday, July 7th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
+bot.action("co_creation_area_8", (ctx) => {
+  try {
+    const events = events_program.july8.coCreationStage;
+    const newEvents = events.map((el) => {
+      return `
+📌 ${!el.number ? "" : `${el.number}.`} ${el.track}
+${
+  !el.title
+    ? `⏳ ${el.time}`
+    : `✏ ${el.title}
+📢 ${el.protocol}
+⏳ ${el.time} | 🕓 ${el.duration}
+🗣 ${el.speaker}
+`
+}`;
+    });
+    ctx.replyWithHTML(`<b>Friday, July 8th</b>
+${newEvents.join(`
+`)}`);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 const sponsors_keyboard = () => {
@@ -1612,111 +3144,6 @@ ${
     ctx.replyWithHTML(getSpeakers.join(``), {
       disable_web_page_preview: true,
     });
-  } catch (error) {
-    console.error(error);
-  }
-});
-bot.action("program_by_day_6", (ctx) => {
-  try {
-    if (events_program.length <= 0) {
-      ctx.reply("Schedule not ready yet");
-      return false;
-    }
-    const getEvents = events_program.filter((events) => {
-      if (events.date == 6) {
-        return events;
-      }
-    });
-
-    const events = getEvents.map((events) => {
-      if (events.date == 6) {
-        return `
-⏳ <b>${events.time}</b>
-📎 ${events.title}
-🗣 ${events.speaker}
-📍 ${events.room}`;
-      }
-    });
-    ctx.replyWithHTML(`<b>6-July</b>
-    ${events.join(`
-`)}
-  `);
-  } catch (error) {
-    console.error(error);
-  }
-});
-bot.action("program_by_day_7", (ctx) => {
-  try {
-    if (events_program.length <= 0) {
-      ctx.reply("Schedule not ready yet");
-      return false;
-    }
-    const getEvents = events_program.filter((events) => {
-      if (events.date == 7) {
-        return events;
-      }
-    });
-    const events = getEvents.map((events) => {
-      return `
-⏳ <b>${events.time}</b>
-📎 ${events.title}
-🗣 ${events.speaker}
-📍 ${events.room}`;
-    });
-    ctx.replyWithHTML(`<b>7-July</b>
-    ${events.join(`
-`)}
-  `);
-  } catch (error) {
-    console.error(error);
-  }
-});
-bot.action("program_by_day_8", (ctx) => {
-  try {
-    if (events_program.length <= 0) {
-      ctx.reply("Schedule not ready yet");
-      return false;
-    }
-    const getEvents = events_program.filter((events) => {
-      if (events.date == 8) {
-        return events;
-      }
-    });
-
-    const events = getEvents.map((events) => {
-      return `
-⏳ <b>${events.time}</b>
-📎 ${events.title}
-🗣 ${events.speaker}
-📍 ${events.room}`;
-    });
-    ctx.replyWithHTML(`<b>8-July</b>
-    ${events.join(`
-`)}
-  `);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.action("program_by_all_day", (ctx) => {
-  try {
-    if (events_program.length <= 0) {
-      ctx.reply("Schedule not ready yet");
-      return false;
-    }
-    const getEvents = events_program.map((events) => {
-      return `
-<b>${events.date}-${events.month}</b>
-⏳ <b>${events.time}</b>
-📎 ${events.title}
-🗣 ${events.speaker}
-📍 ${events.room}`;
-    });
-    ctx.replyWithHTML(`
-      ${getEvents.join(`
-`)}
-    `);
   } catch (error) {
     console.error(error);
   }
