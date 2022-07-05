@@ -35,10 +35,6 @@ const COMMANDS = [
     description: "Current events",
   },
   {
-    command: "add",
-    description: "Add something to the program",
-  },
-  {
     command: "help",
     description: "Show help/main menu",
   },
@@ -78,7 +74,6 @@ Here's how I can help:
 /venue - Venue
 /tickets - Buy tickets
 /now - Current events
-/add - Add something to the program
 /help - Show help/main menu`)
 );
 bot.command("help", (ctx) => {
@@ -1471,7 +1466,7 @@ let events_program = {
         number: "7",
         track: "Impact & Public Goods",
         stage: "",
-        startTime: "11H40",
+        startTime: "11h40",
         finishTime: "12h00",
         duration: "20 min",
         format: "Talk",
@@ -2326,19 +2321,7 @@ let events_program = {
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
         startTime: "10h00",
-        finishTime: "10h20",
-        duration: "20 min",
-        format: "Talk",
-        speaker: "Sasha Shilina",
-        protocol: "Paradigm, Humanode",
-        title: "NFTs: A new mediator standard for creative industries communication",
-      },
-      {
-        number: "3",
-        track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
-        startTime: "10h25",
-        finishTime: "11h10",
+        finishTime: "10h45",
         duration: "45 min",
         format: "Talk",
         speaker:
@@ -2350,8 +2333,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        startTime: "11h15",
-        finishTime: "11h35",
+        startTime: "11h50",
+        finishTime: "11h10",
         duration: "20 min",
         format: "Talk",
         speaker: "Miguel Faus",
@@ -2362,8 +2345,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        startTime: "11h40",
-        finishTime: "12h00",
+        startTime: "11h15",
+        finishTime: "11h35",
         duration: "20 min",
         format: "Talk",
         speaker: "Dave Krugman",
@@ -2374,8 +2357,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        startTime: "12h05",
-        finishTime: "12h25",
+        startTime: "11h40",
+        finishTime: "12h00",
         duration: "20 min",
         format: "Talk",
         speaker: "Camilla McFarland",
@@ -2386,8 +2369,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "",
-        startTime: "12h35",
-        finishTime: "13h20",
+        startTime: "12h05",
+        finishTime: "12h50",
         duration: "45 min",
         format: "Panel",
         speaker:
@@ -2399,8 +2382,8 @@ let events_program = {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
         stage: "Spanish Track",
-        startTime: "13h25",
-        finishTime: "14h20",
+        startTime: "12h55",
+        finishTime: "13h40",
         duration: "45 min",
         format: "Panel",
         speaker: "Fabiana De Luca, Boxhead, Iridyan, Joanna Caraballo Moderated by Sabrina Bonini",
@@ -2411,8 +2394,8 @@ let events_program = {
         number: "",
         track: "Lanch break",
         stage: "",
-        startTime: "13h00",
-        finishTime: "14h00",
+        startTime: "13h40",
+        finishTime: "14h30",
         duration: "",
         format: "",
         speaker: "",
@@ -3326,701 +3309,6 @@ ${
   } catch (error) {
     console.error(error);
   }
-});
-
-const add_program = [
-  [
-    {
-      text: "Speaker", // текст на кнопке
-      callback_data: "add_speaker", // данные для обработчика событий
-    },
-    {
-      text: "Program",
-      callback_data: "add_program",
-    },
-  ],
-  [
-    {
-      text: "Partner",
-      callback_data: "add_partner",
-    },
-    {
-      text: "Sponsors",
-      callback_data: "add_sponsor",
-    },
-  ],
-];
-
-bot.command("add", (ctx) => {
-  if (ctx.from.username !== "Nasirdin1") {
-    ctx.reply("If you want to add something to the program, please contact @Nasirdin1");
-    return false;
-  }
-  ctx.reply("What do you want to add:", {
-    reply_markup: {
-      inline_keyboard: add_program,
-    },
-  });
-});
-
-bot.action("add_speaker", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  ctx.replyWithHTML(`<b>Send the full name of the speaker</b>
-Exapmle: <i>/addspeakername "Andry Jordan"</i>`);
-});
-
-const add_callback_data = (arr) => {
-  const lasElement = arr[arr.length - 1];
-  const lasElementCallBack = lasElement.callback_data.split("_");
-  return lasElementCallBack[1] * 1 + 1;
-};
-
-bot.action("add_program", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  ctx.replyWithHTML(`<b>What month?</b>
-Example: <i>/addeventmonth "July"</i>`);
-});
-
-let newPartner = {
-  name: "",
-  title: "",
-  subtitle: "",
-  description: "",
-  url: "",
-  callback_data: "",
-};
-
-bot.action("add_partner", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  ctx.replyWithHTML(`<b>Enter partner name *: </b>
-Example: <i>/addpartnername "Launch Partners"</i>`);
-});
-
-bot.command("addpartnername", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle:  <i>/addpartnergroup "Giant Cookie"</i>`);
-    } else {
-      newPartner = {
-        name: `${message[1]}`,
-        title: `${newPartner.title}`,
-        subtitle: `${newPartner.subtitle}`,
-        description: `${newPartner.description}`,
-        url: `${newPartner.url}`,
-        callback_data: `partners_${add_callback_data(partners_array)}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter title *:</b>
-Example: <i>/addpartnertitle "Join a tribe in Barcelona that cares about freedom"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addpartnertitle", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-      Example: <i>/addpartnertitle "Join a tribe in Barcelona that cares about freedom"</i>`);
-    } else {
-      newPartner = {
-        name: `${newPartner.name}`,
-        title: `${message[1]}`,
-        subtitle: `${newPartner.subtitle}`,
-        description: `${newPartner.description}`,
-        url: `${newPartner.url}`,
-        callback_data: `${newPartner.callback_data}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter subtitle:</b>
-Example: <i>/addpartnersubtitle "We believe technology should free humanity, not enslave it."</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addpartnersubtitle", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle:  <i>/addpartnersubtitle "We believe technology should free humanity, not enslave it. "</i>`);
-      return false;
-    } else {
-      newPartner = {
-        name: `${newPartner.name}`,
-        title: `${newPartner.title}`,
-        subtitle: `${message[1]}`,
-        description: `${newPartner.description}`,
-        url: `${newPartner.url}`,
-        callback_data: `${newPartner.callback_data}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter discription:</b>
-Example: <i>/addpartnerdiscription "We believe technology should free humanity, not enslave it."</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addpartnerdiscription", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle: <i>/addpartnerdiscription "We believe technology should free humanity, not enslave it."</i>`);
-      return false;
-    }
-    if (!newPartner.description && message.length <= 1) {
-      ctx.replyWithHTML(`❌Your subtitle is empty although fill in the description.
-Exapmle: <i>/addpartnerdiscription "We believe technology should free humanity, not enslave it."</i>`);
-    } else {
-      newPartner = {
-        name: `${newPartner.name}`,
-        title: `${newPartner.title}`,
-        subtitle: `${newPartner.subtitle}`,
-        description: `${message[1]}`,
-        url: `${newPartner.url}`,
-        callback_data: `${newPartner.callback_data}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter url:</b>
-Example: <i>/addpartnerurl "https://telegram.org/"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addpartnerurl", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle: <i>/addpartnerurl "https://telegram.org/"</i>`);
-      return false;
-    }
-    newPartner = {
-      name: `${newPartner.name}`,
-      title: `${newPartner.title}`,
-      subtitle: `${newPartner.subtitle}`,
-      description: `${newPartner.description}`,
-      url: `${message[1]}`,
-      callback_data: `${newPartner.callback_data}`,
-    };
-    ctx.replyWithHTML(
-      `✅Success!
-    
-<b>Check the data:</b>
-
-<b>Name</b>: <i>${newPartner.name}</i>
-
-<b>Title</b>: <i>${newPartner.title}</i>
-
-<b>Subtitle</b>: <i>${newPartner.subtitle}</i>
-
-<b>Description</b>: <i>${newPartner.description}</i>
-
-<b>Url</b>: <i>${message[1]}</i>
-`,
-      Markup.inlineKeyboard([
-        [Markup.button.callback("✅ Save", "partnersave"), Markup.button.callback("🗑 Delete", "delete")],
-      ])
-    );
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.action("partnersave", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  partners_array = [...partners_array, newPartner];
-  ctx.replyWithHTML(`✅Success!`);
-});
-
-let newSponsor = {
-  name: "",
-  title: "",
-  subtitle: "",
-  description: "",
-  url: "",
-  callback_data: "",
-};
-
-bot.action("add_sponsor", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  ctx.replyWithHTML(`<b>Enter sponsor name *: </b>
-Example: <i>/addsponsorname "Launch Sponsors"</i>`);
-});
-
-bot.command("addsponsorname", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle:  <i>/addsponsorgroup "Giant Cookie"</i>`);
-    } else {
-      newSponsor = {
-        name: `${message[1]}`,
-        title: `${newSponsor.title}`,
-        subtitle: `${newSponsor.subtitle}`,
-        description: `${newSponsor.description}`,
-        url: `${newSponsor.url}`,
-        callback_data: `sponsors_${add_callback_data(sponsors_array)}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter title *:</b>
-Example: <i>/addsponsortitle "Join a tribe in Barcelona that cares about freedom"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addsponsortitle", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-      Example: <i>/addsponsortitle "Join a tribe in Barcelona that cares about freedom"</i>`);
-    } else {
-      newSponsor = {
-        name: `${newSponsor.name}`,
-        title: `${message[1]}`,
-        subtitle: `${newSponsor.subtitle}`,
-        description: `${newSponsor.description}`,
-        url: `${newSponsor.url}`,
-        callback_data: `${newSponsor.callback_data}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter subtitle:</b>
-Example: <i>/addsponsorsubtitle "We believe technology should free humanity, not enslave it."</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addsponsorsubtitle", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle:  <i>/addsponsorsubtitle "We believe technology should free humanity, not enslave it. "</i>`);
-      return false;
-    } else {
-      newSponsor = {
-        name: `${newSponsor.name}`,
-        title: `${newSponsor.title}`,
-        subtitle: `${message[1]}`,
-        description: `${newSponsor.description}`,
-        url: `${newSponsor.url}`,
-        callback_data: `${newSponsor.callback_data}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter discription:</b>
-Example: <i>/addsponsordiscription "We believe technology should free humanity, not enslave it."</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addsponsordiscription", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle: <i>/addsponsordiscription "We believe technology should free humanity, not enslave it."</i>`);
-      return false;
-    }
-    if (!newSponsor.description && message.length <= 1) {
-      ctx.replyWithHTML(`❌Your subtitle is empty although fill in the description.
-Exapmle: <i>/addsponsordiscription "We believe technology should free humanity, not enslave it."</i>`);
-    } else {
-      newSponsor = {
-        name: `${newSponsor.name}`,
-        title: `${newSponsor.title}`,
-        subtitle: `${newSponsor.subtitle}`,
-        description: `${message[1]}`,
-        url: `${newSponsor.url}`,
-        callback_data: `${newSponsor.callback_data}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter url:</b>
-Example: <i>/addsponsorurl "https://telegram.org/"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addsponsorurl", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle: <i>/addsponsorurl "https://telegram.org/"</i>`);
-      return false;
-    }
-    newSponsor = {
-      name: `${newSponsor.name}`,
-      title: `${newSponsor.title}`,
-      subtitle: `${newSponsor.subtitle}`,
-      description: `${newSponsor.description}`,
-      url: `${message[1]}`,
-      callback_data: `${newSponsor.callback_data}`,
-    };
-    ctx.replyWithHTML(
-      `✅Success!
-    
-<b>Check the data:</b>
-
-<b>Name</b>: <i>${newSponsor.name}</i>
-
-<b>Title</b>: <i>${newSponsor.title}</i>
-
-<b>Subtitle</b>: <i>${newSponsor.subtitle}</i>
-
-<b>Description</b>: <i>${newSponsor.description}</i>
-
-<b>Url</b>: <i>${message[1]}</i>
-`,
-      Markup.inlineKeyboard([
-        [Markup.button.callback("✅ Save", "sponsorsave"), Markup.button.callback("🗑 Delete", "delete")],
-      ])
-    );
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.action("sponsorsave", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  sponsors_array = [...sponsors_array, newSponsor];
-  ctx.replyWithHTML(`✅Success!`);
-});
-
-let newSpeaker = {
-  name: "",
-  title: "",
-  description: "",
-  url: "",
-};
-
-bot.command("addspeakername", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Exapmle: <i>/addspeakername "Andry Jordan"</i>`);
-    } else {
-      newSpeaker = {
-        name: `${message[1]}`,
-        title: `${newSpeaker.title}`,
-        description: `${newSpeaker.description}`,
-        url: `${newSpeaker.url}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter title *:</b>
-Example: <i>/addspeakertitle "Lead Mobile Application Developer"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addspeakertitle", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-      Example: <i>/addspeakertitle "Lead Mobile Application Developer"</i>`);
-    } else {
-      newSpeaker = {
-        name: `${newSpeaker.name}`,
-        title: `${message[1]}`,
-        description: `${newSpeaker.description}`,
-        url: `${newSpeaker.url}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter discription:</b>
-Example: <i>/addspeakerdiscription "I am working on a mobile application for smart home control."</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addspeakerdiscription", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-<i>Example: <i>/addspeakerdiscription "I am working on a mobile application for smart home control."i>`);
-    } else {
-      newSpeaker = {
-        name: `${newSpeaker.name}`,
-        title: `${newSpeaker.title}`,
-        description: `${message[1]}`,
-        url: `${newSpeaker.url}`,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter url:</b>
-Example: <i>/addspeakerurl "https://www.linkedin.com/"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addspeakerurl", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addspeakerurl "https://www.linkedin.com/"</i>`);
-      return false;
-    }
-    newSpeaker = {
-      name: `${newSpeaker.name}`,
-      title: `${newSpeaker.title}`,
-      description: `${newSpeaker.description}`,
-      url: `${message[1]}`,
-    };
-    ctx.replyWithHTML(
-      `✅Success!
-    
-<b>Check the data:</b>
-
-<b>Name</b>: <i>${newSpeaker.name}</i>
-
-<b>Title</b>: <i>${newSpeaker.title}</i>
-
-<b>Description</b>: <i>${newSpeaker.description}</i>
-
-<b>Url</b>: <i>${message[1]}</i>
-`,
-      Markup.inlineKeyboard([
-        [Markup.button.callback("✅ Save", "speakersave"), Markup.button.callback("🗑 Delete", "delete")],
-      ])
-    );
-  } catch (error) {
-    console.error(error);
-  }
-});
-bot.action("speakersave", async (ctx) => {
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  speakers_array = [...speakers_array, newSpeaker];
-  ctx.replyWithHTML(`✅Success!`);
-});
-
-let newEvent = {
-  date: "",
-  month: "",
-  time: "",
-  title: "",
-  speaker: "",
-  room: "",
-  callback_data: "",
-};
-
-bot.command("addeventmonth", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addprogrammonth "July"</i>`);
-    } else {
-      newEvent = {
-        date: `${newEvent.date}`,
-        month: message[1],
-        time: newEvent.time,
-        title: newEvent.title,
-        speaker: newEvent.speaker,
-        room: newEvent.room,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter date *:</b>
-Example: <i>/addeventdate "23"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addeventdate", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addeventdate "23"</i>`);
-    } else {
-      newEvent = {
-        date: message[1],
-        month: newEvent.month,
-        time: newEvent.time,
-        title: newEvent.title,
-        speaker: newEvent.speaker,
-        room: newEvent.room,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter time (GMT+2):</b>
-Example: <i>/addeventtime "14:00"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addeventtime", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addeventtime "14:00"</i>`);
-    } else {
-      newEvent = {
-        date: newEvent.date,
-        month: newEvent.month,
-        time: `${message[1]}(GMT+2)`,
-        title: newEvent.title,
-        speaker: newEvent.speaker,
-        room: newEvent.room,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter title:</b>
-Example: <i>/addeventtitle "Blockchain"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addeventtitle", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addeventtitle "Blockchain"</i>`);
-    } else {
-      newEvent = {
-        date: newEvent.date,
-        month: newEvent.month,
-        time: newEvent.time,
-        title: message[1],
-        speaker: newEvent.speaker,
-        room: newEvent.room,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter speaker:</b>
-Example: <i>/addeventspeaker "Andry Jonrdan"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addeventspeaker", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message.length < 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addeventspeaker "Andry Jonrdan"</i>`);
-    } else {
-      newEvent = {
-        date: newEvent.date,
-        month: newEvent.month,
-        time: newEvent.time,
-        title: newEvent.title,
-        speaker: message[1],
-        room: newEvent.room,
-      };
-      ctx.replyWithHTML(`✅Success!
-<b>Enter room:</b>
-Example: <i>/addeventroom "Online"</i>`);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.command("addeventroom", (ctx) => {
-  try {
-    const message = ctx.message.text.split('"');
-    if (message.length > 3 || message[2] !== "") {
-      ctx.replyWithHTML(`❌ Check your spelling and try again
-Example: <i>/addeventroom "Online"</i>`);
-      return false;
-    }
-    newEvent = {
-      date: newEvent.date,
-      month: newEvent.month,
-      time: newEvent.time,
-      title: newEvent.title,
-      speaker: newEvent.speaker,
-      room: message[1],
-    };
-    ctx.replyWithHTML(
-      `✅Success!
-    
-<b>Check the data:</b>
-
-<b>Date</b>: <i>${newEvent.date}-${newEvent.month}</i>
-
-<b>Time</b>: <i>${newEvent.time}</i>
-
-<b>Title</b>: <i>${newEvent.title}</i>
-
-<b>speaker</b>: <i>${newEvent.speaker}</i>
-
-<b>Room</b>: <i>${message[1]}</i>
-`,
-      Markup.inlineKeyboard([
-        [Markup.button.callback("✅ Save", "eventsave"), Markup.button.callback("🗑 Delete", "delete")],
-      ])
-    );
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.action("eventsave", async (ctx) => {
-  events_program = [...events_program, newEvent];
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  ctx.replyWithHTML(`✅Success!`);
-});
-
-bot.action("delete", async (ctx) => {
-  newSpeaker = {
-    name: "",
-    title: "",
-    description: "",
-    url: "",
-  };
-  newEvent = {
-    date: "",
-    month: "",
-    time: "",
-    title: "",
-    speaker: "",
-    room: "",
-  };
-  newPartner = {
-    name: "",
-    title: "",
-    subtitle: "",
-    description: "",
-    url: "",
-  };
-  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-  ctx.reply("✅ Deleted successfully");
 });
 
 bot.launch();
