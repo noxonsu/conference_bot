@@ -2811,6 +2811,12 @@ const stage_keyboard_6 = [
       callback_data: "co_creation_area_6",
     },
   ],
+  [
+    {
+      text: "↩️ Back to selection",
+      callback_data: "back_to_day",
+    },
+  ],
 ];
 const stage_keyboard_7 = [
   [
@@ -2827,6 +2833,12 @@ const stage_keyboard_7 = [
     {
       text: "Co-Creation Area",
       callback_data: "co_creation_area_7",
+    },
+  ],
+  [
+    {
+      text: "↩️ Back to selection",
+      callback_data: "back_to_day",
     },
   ],
 ];
@@ -2847,7 +2859,22 @@ const stage_keyboard_8 = [
       callback_data: "co_creation_area_8",
     },
   ],
+  [
+    {
+      text: "↩️ Back to selection",
+      callback_data: "back_to_day",
+    },
+  ],
 ];
+
+bot.action("back_to_day", async (ctx) => {
+  ctx.reply("Choose a day:", {
+    reply_markup: {
+      inline_keyboard: program_by_day_keyboard,
+    },
+  });
+  await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
+});
 
 const zeroTime = (date) => {
   if (date.toString().length == 1) {
@@ -2952,41 +2979,44 @@ bot.command("program", (ctx) => {
   });
 });
 
-bot.action("program_by_day_6", (ctx) => {
+bot.action("program_by_day_6", async (ctx) => {
   try {
-    ctx.reply("Select scene:", {
+    ctx.reply("Wednesday, July 6th:", {
       reply_markup: {
         inline_keyboard: stage_keyboard_6,
       },
     });
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("program_by_day_7", (ctx) => {
+bot.action("program_by_day_7", async (ctx) => {
   try {
-    ctx.reply("Select scene:", {
+    ctx.reply("Thursday, July 7th", {
       reply_markup: {
         inline_keyboard: stage_keyboard_7,
       },
     });
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("program_by_day_8", (ctx) => {
+bot.action("program_by_day_8", async (ctx) => {
   try {
-    ctx.reply("Select scene:", {
+    ctx.reply("Friday, July 8th", {
       reply_markup: {
         inline_keyboard: stage_keyboard_8,
       },
     });
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
 
-bot.action("sky_stage_6", (ctx) => {
+bot.action("sky_stage_6", async (ctx) => {
   try {
     const events = events_program.july6.skyStage;
     const newEvents = events.map((el) => {
@@ -3002,18 +3032,19 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
+    ctx.replyWithHTML(`<b>Sky stage, July 6</b>
 
 📌 Welcome
 🕓 10H00 - 10H20 | 20 min
 ✏ Welcome speech + ETHBarcelona Code of Conduct
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("sky_stage_7", (ctx) => {
+bot.action("sky_stage_7", async (ctx) => {
   try {
     const events = events_program.july7.skyStage;
     const newEvents = events.map((el) => {
@@ -3029,14 +3060,15 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Thursday, July 7th</b>
+    ctx.replyWithHTML(`<b>Sky stage, July 7</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("sky_stage_8", (ctx) => {
+bot.action("sky_stage_8", async (ctx) => {
   try {
     const events = events_program.july8.skyStage;
     const newEvents = events.map((el) => {
@@ -3052,15 +3084,16 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Friday, July 8th</b>
+    ctx.replyWithHTML(`<b>Sky stage, july 8</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
 
-bot.action("forest_stage_6", (ctx) => {
+bot.action("forest_stage_6", async (ctx) => {
   try {
     const events = events_program.july6.forestStage;
     const newEvents = events.map((el) => {
@@ -3076,14 +3109,14 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
+    ctx.replyWithHTML(`<b>Forest stage, July 6</b>
 ${newEvents.join(`
 `)}`);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("forest_stage_7", (ctx) => {
+bot.action("forest_stage_7", async (ctx) => {
   try {
     const events = events_program.july7.forestStage;
     const newEvents = events.map((el) => {
@@ -3099,14 +3132,15 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Thursday, July 7th</b>
+    ctx.replyWithHTML(`<b>Forest stage, Juky 7</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("forest_stage_8", (ctx) => {
+bot.action("forest_stage_8", async (ctx) => {
   try {
     const events = events_program.july8.forestStage;
     const newEvents = events.map((el) => {
@@ -3122,15 +3156,16 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Friday, July 8th</b>
+    ctx.replyWithHTML(`<b>Foreast stage, july 8</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
 
-bot.action("co_creation_area_6", (ctx) => {
+bot.action("co_creation_area_6", async (ctx) => {
   try {
     const events = events_program.july6.coCreationStage;
     const newEvents = events.map((el) => {
@@ -3146,14 +3181,15 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Wednesday, July 6th</b>
+    ctx.replyWithHTML(`<b>Co-Creation area, July 6</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("co_creation_area_7", (ctx) => {
+bot.action("co_creation_area_7", async (ctx) => {
   try {
     const events = events_program.july7.coCreationStage;
     const newEvents = events.map((el) => {
@@ -3169,14 +3205,15 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Thursday, July 7th</b>
+    ctx.replyWithHTML(`<b>Co-Creation area, July 7</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
 });
-bot.action("co_creation_area_8", (ctx) => {
+bot.action("co_creation_area_8", async (ctx) => {
   try {
     const events = events_program.july8.coCreationStage;
     const newEvents = events.map((el) => {
@@ -3192,9 +3229,10 @@ ${
 🎤 Format: ${el.format}`
 }`;
     });
-    ctx.replyWithHTML(`<b>Friday, July 8th</b>
+    ctx.replyWithHTML(`<b>Co-Creation area, July 8</b>
 ${newEvents.join(`
 `)}`);
+    await ctx.deleteMessage(ctx.update.callback_query.message.message_id);
   } catch (error) {
     console.error(error);
   }
