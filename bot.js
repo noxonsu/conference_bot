@@ -30,10 +30,10 @@ const COMMANDS = [
     command: "tickets",
     description: "Buy tickets",
   },
-  {
-    command: "now",
-    description: "Current events",
-  },
+  // {
+  //   command: "now",
+  //   description: "Current events",
+  // },
   {
     command: "help",
     description: "Show help/main menu",
@@ -73,7 +73,6 @@ Here's how I can help:
 /location - Location
 /map - Conference room map
 /tickets - Buy tickets
-/now - Current events
 /help - Show help/main menu`)
 );
 bot.command("help", (ctx) => {
@@ -2876,89 +2875,89 @@ const zeroTime = (date) => {
   }
 };
 
-bot.command("now", (ctx) => {
-  try {
-    if (events_program.length <= 0) {
-      ctx.replyWithHTML("Porgram list is empty");
-      return false;
-    }
+// bot.command("now", (ctx) => {
+//   try {
+//     if (events_program.length <= 0) {
+//       ctx.replyWithHTML("Porgram list is empty");
+//       return false;
+//     }
 
-    const date = new Date();
-    const getTime = `${zeroTime(date.getHours())}:${zeroTime(date.getMinutes())}`;
-    const getDate = date.getDate();
-    const getMonth = date.getMonth();
-    const newEvents = () => {
-      if (getDate == 6 && getMonth == 6) {
-        const events = Object.values(events_program.july6);
-        const nowArrayEvents = events.map((el) => {
-          return el.filter((event) => {
-            const startTime = event.startTime.split("h").join(":");
-            const finishTime = event.finishTime.split("h").join(":");
-            if (getTime >= startTime && getTime <= finishTime) {
-              return event;
-            }
-          });
-        });
-        return nowArrayEvents;
-      } else if (getDate == 7 && getMonth == 6) {
-        const events = Object.values(events_program.july7);
-        const nowArrayEvents = events.map((el) => {
-          return el.filter((event) => {
-            const startTime = event.startTime.split("h").join(":");
-            const finishTime = event.finishTime.split("h").join(":");
-            if (getTime >= startTime && getTime <= finishTime) {
-              return event;
-            }
-          });
-        });
-        return nowArrayEvents;
-      } else if (getDate == 8 && getMonth == 6) {
-        const events = Object.values(events_program.july8);
-        const nowArrayEvents = events.map((el) => {
-          return el.filter((event) => {
-            const startTime = event.startTime.split("h").join(":");
-            const finishTime = event.finishTime.split("h").join(":");
-            if (getTime >= startTime && getTime <= finishTime) {
-              return event;
-            }
-          });
-        });
-        return nowArrayEvents;
-      } else {
-        return false;
-      }
-    };
-    let newNowEvents = [];
+//     const date = new Date();
+//     const getTime = `${zeroTime(date.getHours())}:${zeroTime(date.getMinutes())}`;
+//     const getDate = date.getDate();
+//     const getMonth = date.getMonth();
+//     const newEvents = () => {
+//       if (getDate == 6 && getMonth == 6) {
+//         const events = Object.values(events_program.july6);
+//         const nowArrayEvents = events.map((el) => {
+//           return el.filter((event) => {
+//             const startTime = event.startTime.split("h").join(":");
+//             const finishTime = event.finishTime.split("h").join(":");
+//             if (getTime >= startTime && getTime <= finishTime) {
+//               return event;
+//             }
+//           });
+//         });
+//         return nowArrayEvents;
+//       } else if (getDate == 7 && getMonth == 6) {
+//         const events = Object.values(events_program.july7);
+//         const nowArrayEvents = events.map((el) => {
+//           return el.filter((event) => {
+//             const startTime = event.startTime.split("h").join(":");
+//             const finishTime = event.finishTime.split("h").join(":");
+//             if (getTime >= startTime && getTime <= finishTime) {
+//               return event;
+//             }
+//           });
+//         });
+//         return nowArrayEvents;
+//       } else if (getDate == 8 && getMonth == 6) {
+//         const events = Object.values(events_program.july8);
+//         const nowArrayEvents = events.map((el) => {
+//           return el.filter((event) => {
+//             const startTime = event.startTime.split("h").join(":");
+//             const finishTime = event.finishTime.split("h").join(":");
+//             if (getTime >= startTime && getTime <= finishTime) {
+//               return event;
+//             }
+//           });
+//         });
+//         return nowArrayEvents;
+//       } else {
+//         return false;
+//       }
+//     };
+//     let newNowEvents = [];
 
-    if (!newEvents()) {
-      ctx.replyWithHTML("Porgram list is empty");
-      return false;
-    }
+//     if (!newEvents()) {
+//       ctx.replyWithHTML("Porgram list is empty");
+//       return false;
+//     }
 
-    newEvents().map((event) => {
-      const eventNow = event.map((el) => {
-        return `
-📌 ${!event[0].number ? "" : `${event[0].number}.`} ${event[0].track}
-${
-  !event[0].title
-    ? `⏳  ${[0].startTime} - ${event[0].finishTime}`
-    : `✏  ${event[0].title}
-📢  ${event[0].protocol}
-⏳  ${event[0].startTime} - ${event[0].finishTime} | 🕓 ${event[0].duration}
-🗣  ${event[0].speaker}
-🎤 ${event[0].format}
-📍 ${event[0].stage}
-`
-}`;
-      });
-      newNowEvents = [...newNowEvents, ...eventNow];
-    });
-    ctx.replyWithHTML(`Now:
-${newNowEvents.join(``)}`);
-  } catch (error) {
-    console.error(error);
-  }
-});
+//     newEvents().map((event) => {
+//       const eventNow = event.map((el) => {
+//         return `
+// 📌 ${!event[0].number ? "" : `${event[0].number}.`} ${event[0].track}
+// ${
+//   !event[0].title
+//     ? `⏳  ${[0].startTime} - ${event[0].finishTime}`
+//     : `✏  ${event[0].title}
+// 📢  ${event[0].protocol}
+// ⏳  ${event[0].startTime} - ${event[0].finishTime} | 🕓 ${event[0].duration}
+// 🗣  ${event[0].speaker}
+// 🎤 ${event[0].format}
+// 📍 ${event[0].stage}
+// `
+// }`;
+//       });
+//       newNowEvents = [...newNowEvents, ...eventNow];
+//     });
+//     ctx.replyWithHTML(`Now:
+// ${newNowEvents.join(``)}`);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 bot.command("program", (ctx) => {
   if (!events_program) {
