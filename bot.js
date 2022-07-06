@@ -71,6 +71,7 @@ Here's how I can help:
 /partners - List of partners
 /sponsors - List of sponsors
 /location - Location
+/now - Current events
 /map - Conference room map
 /tickets - Buy tickets
 /help - Show help/main menu`)
