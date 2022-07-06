@@ -55,7 +55,7 @@ bot.telegram.setMyCommands(COMMANDS);
 bot.start((ctx) =>
   ctx.replyWithMarkdown(
     `Hi👋 \n\n\
-I'm a chatbot *Barcelona IT Conf* and I'm here to help you spend time on \
+I'm a chatbot *ETHBarcelona* and I'm here to help you spend time on \
 conferences with benefit and pleasure.\n\n\
 I will help you keep track of the schedule, find out information about speakers and partners,\
 receive notifications from the organizers and ask them questions. \n\n\
@@ -1414,7 +1414,7 @@ bot.command("location", (ctx) => {
 📍 International Barcelona Convention Center
 11-14 Plaça de Willy Brandt
 08019 Barcelona
-https://goo.gl/maps/2neYyS3cEKYJyiAQ8
+https://g.page/ccibforum
 `,
     Markup.inlineKeyboard([[Markup.button.callback("📍 View the conference venue", "back_to_venue")]])
   );
