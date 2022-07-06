@@ -23,8 +23,8 @@ const COMMANDS = [
     description: "Location",
   },
   {
-    command: "venue",
-    description: "Venue",
+    command: "map",
+    description: "Conference room map",
   },
   {
     command: "tickets",
@@ -71,7 +71,7 @@ Here's how I can help:
 /partners - List of partners
 /sponsors - List of sponsors
 /location - Location
-/venue - Venue
+/map - Conference room map
 /tickets - Buy tickets
 /now - Current events
 /help - Show help/main menu`)
@@ -1357,22 +1357,32 @@ const venue_keyboard = venues.map((venue) => {
   return keyboard;
 });
 
-bot.command("venue", async (ctx) => {
-  try {
-    if (!venues) {
-      ctx.replyWithHTML("Venue not yet determined");
-      return false;
-    }
-    ctx.reply("Venue :                                             .", {
-      reply_markup: {
-        inline_keyboard: venue_keyboard,
-      },
-    });
-    await ctx.deleteMessage(ctx.update.message.message_id);
+// bot.command("venue", async (ctx) => {
+//   try {
+//     if (!venues) {
+//       ctx.replyWithHTML("Venue not yet determined");
+//       return false;
+//     }
+//     ctx.reply("Venue :                                             .", {
+//       reply_markup: {
+//         inline_keyboard: venue_keyboard,
+//       },
+//     });
+//     await ctx.deleteMessage(ctx.update.message.message_id);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
+
+bot.command("map", async (ctx) => {
+  try{
+    ctx.replyWithPhoto({source: "./img1.jpg"})
+    // ctx.replyWithPhoto({source: "./img3.webp"})
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
-});
+})
+
 bot.action(
   venues.map((venue) => {
     return venue.callback_data;
@@ -1441,7 +1451,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Sky stage",
         startTime: "10h25",
         finishTime: "10h45",
         duration: "20 min",
@@ -1453,9 +1463,9 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Sky stage",
         startTime: "10h50",
-        finishTime: "11H35",
+        finishTime: "11h35",
         duration: "45 min",
         format: "Panel",
         speaker: "Simona Pop, Andy Tudhope, Chris Purifoy, Evin McMullen - Moderator: Colin Reynolds ",
@@ -1465,7 +1475,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Sky stage",
         startTime: "11h40",
         finishTime: "12h00",
         duration: "20 min",
@@ -1477,7 +1487,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "12h05",
         finishTime: "12h25",
         duration: "20 min",
@@ -1489,7 +1499,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "12h30",
         finishTime: "13h30",
         duration: "60 min",
@@ -1503,7 +1513,7 @@ let events_program = {
       {
         number: "",
         track: "Lunch Break",
-        stage: "",
+        stage: "Sky stage",
         startTime: "13H20",
         finishTime: "14H30",
         duration: "",
@@ -1515,7 +1525,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Sky stage",
         startTime: "14h30",
         finishTime: "14h50",
         duration: "20 min",
@@ -1527,7 +1537,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Sky stage",
         startTime: "14h55",
         finishTime: "15h15",
         duration: "20 min",
@@ -1539,7 +1549,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Sky stage",
         startTime: "15h20",
         finishTime: "15h40",
         duration: "20 min",
@@ -1551,7 +1561,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Sky stage",
         startTime: "15h45",
         finishTime: "16h15",
         duration: "30 min",
@@ -1563,8 +1573,8 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
-        startTime: "16H20",
+        stage: "Sky stage",
+        startTime: "16h20",
         finishTime: "16h40",
         duration: "20 min",
         format: "Talk",
@@ -1574,9 +1584,8 @@ let events_program = {
       },
       {
         number: "6",
-        startTrack: "Blockchain Tech & Scalability ",
-        finishTime: "",
-        stage: "",
+        track: "Blockchain Tech & Scalability ",
+        stage: "Sky stage",
         startTime: "16h45",
         finishTime: "17h05",
         duration: "20 min",
@@ -1588,7 +1597,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Sky stage",
         startTime: "17h10",
         finishTime: "17h30",
         duration: "20 min",
@@ -1600,7 +1609,7 @@ let events_program = {
       {
         number: "4",
         track: "Legal",
-        stage: "",
+        stage: "Sky stage",
         startTime: "17h35",
         finishTime: "18h20",
         duration: "45 min",
@@ -1615,8 +1624,8 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
-        startTime: "10H30",
+        stage: "Forest stage",
+        startTime: "10h30",
         finishTime: "10h50",
         duration: "20 min",
         format: "Talk",
@@ -1627,7 +1636,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "10h55",
         finishTime: "11h15",
         duration: "20 min",
@@ -1639,7 +1648,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "11h20",
         finishTime: "11h45",
         duration: "20 min",
@@ -1651,7 +1660,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "11h55",
         finishTime: "12h15",
         duration: "20 min",
@@ -1663,7 +1672,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "12h20",
         finishTime: "12h40",
         duration: "20 min",
@@ -1675,7 +1684,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "12h45",
         finishTime: "13h05",
         duration: "20 min",
@@ -1688,7 +1697,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "13h10",
         finishTime: "13h55",
         duration: "40 min",
@@ -1712,7 +1721,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "14h45",
         finishTime: "15h05",
         duration: "20 min",
@@ -1724,7 +1733,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h10",
         finishTime: "15h30",
         duration: "20 min",
@@ -1736,7 +1745,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h35",
         finishTime: "15h55",
         duration: "20 min ",
@@ -1748,7 +1757,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Forest stage",
         startTime: "16h00",
         finishTime: "16h20",
         duration: "20 min ",
@@ -1760,7 +1769,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Forest stage",
         startTime: "16h25",
         finishTime: "17h10",
         duration: "45 min ",
@@ -1772,7 +1781,7 @@ let events_program = {
       {
         numer: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Forest stage",
         startTime: "17h15",
         finishTime: "17h35",
         duration: "20 min",
@@ -1784,7 +1793,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Forest stage",
         startTime: "17h40",
         finishTime: "18h25",
         duration: "45 min",
@@ -1799,7 +1808,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "10h30",
         finishTime: "11h30",
         duration: "45 min",
@@ -1811,7 +1820,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "11h30",
         finishTime: "12h30",
         duration: "45 min",
@@ -1823,7 +1832,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "12h30",
         finishTime: "13h30",
         duration: "45 min",
@@ -1847,7 +1856,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "15h00",
         finishTime: "16h00",
         duration: "45 min",
@@ -1859,7 +1868,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "16h00",
         finishTime: "17h00",
         duration: "45 min",
@@ -1875,7 +1884,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Sky stage",
         startTime: "10h00",
         finishTime: "10h45",
         duration: "45 min",
@@ -1888,7 +1897,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Sky stage",
         startTime: "10h50",
         finishTime: "11h10",
         duration: "20 min",
@@ -1900,7 +1909,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Sky stage",
         startTime: "11h15",
         finishTime: "12h00",
         duration: "45 min",
@@ -1914,7 +1923,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Sky stage",
         startTime: "12h05",
         finishTime: "12h25",
         duration: "20 min",
@@ -1926,7 +1935,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Sky stage",
         startTime: "12h30",
         finishTime: "12h50",
         duration: "20 min",
@@ -1938,7 +1947,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Sky stage",
         startTime: "12h55",
         finishTime: "13h15",
         duration: "20 min",
@@ -1950,7 +1959,7 @@ let events_program = {
       {
         number: "",
         track: "Lunch Break",
-        stage: "",
+        stage: "Sky stage",
         startTime: "13h35",
         finishTime: "15h00",
         duration: "",
@@ -1962,7 +1971,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "15h00",
         finishTime: "15h20",
         duration: "20 min",
@@ -1974,7 +1983,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "15h25",
         finishTime: "15h45",
         duration: "20 min",
@@ -1986,7 +1995,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "15h50",
         finishTime: "16h10",
         duration: "20 min",
@@ -1998,7 +2007,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "16h15",
         finishTime: "16h35",
         duration: "20 min",
@@ -2010,7 +2019,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "16h40",
         finishTime: "17h00",
         duration: "20 min",
@@ -2022,7 +2031,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "17h05",
         finishTime: "17h50",
         duration: "45 min",
@@ -2035,7 +2044,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Sky stage",
         startTime: "17h50",
         finishTime: "18h00",
         duration: "10 min",
@@ -2049,7 +2058,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Forest stage",
         startTime: "10h30",
         finishTime: "10h50",
         duration: "20 min",
@@ -2061,7 +2070,7 @@ let events_program = {
       {
         number: "8",
         track: "Finanzas",
-        stage: "",
+        stage: "Forest stage",
         startTime: "10h55",
         finishTime: "11h15",
         duration: "20 min",
@@ -2073,7 +2082,7 @@ let events_program = {
       {
         number: "8",
         track: "Finanzas",
-        stage: "",
+        stage: "Forest stage",
         startTime: "11h20",
         finishTime: "11h45",
         duration: "20 min",
@@ -2085,7 +2094,7 @@ let events_program = {
       {
         number: "8",
         track: "Finanzas",
-        stage: "",
+        stage: "Forest stage",
         startTime: "11h50",
         finishTime: "12h10",
         duration: "20 min",
@@ -2097,7 +2106,7 @@ let events_program = {
       {
         number: "4",
         track: "Legal",
-        stage: "",
+        stage: "Forest stage",
         startTime: "12h15",
         finishTime: "12h35",
         duration: "25 min",
@@ -2109,7 +2118,7 @@ let events_program = {
       {
         number: "1",
         track: "Pensamiento Regenerativo",
-        stage: "",
+        stage: "Forest stage",
         startTime: "12h40",
         finishTime: "13h00",
         duration: "19 min",
@@ -2121,7 +2130,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs y la Cultura de la Coordinación",
-        stage: "",
+        stage: "Forest stage",
         startTime: "13h05",
         finishTime: "13h25",
         duration: "20 min",
@@ -2133,7 +2142,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs y la Cultura de la Coordinación",
-        stage: "",
+        stage: "Forest stage",
         startTime: "13h30",
         finishTime: "13h50",
         duration: "20 min",
@@ -2157,7 +2166,7 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h00",
         finishTime: "15h20",
         duration: "20 min",
@@ -2169,7 +2178,7 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h25",
         finishTime: "15h45",
         duration: "20 min",
@@ -2181,7 +2190,7 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h50",
         finishTime: "16h10",
         duration: "20 min",
@@ -2193,11 +2202,11 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "16h20",
         finishTime: "17h05",
         duration: "45 min",
-        format: "Talk",
+        format: "Panel",
         speaker: "Julien Bouteloup - StakeDAO + Anton Mozgovoy - Mover Moderated by Megan DeMatteo - Coindesk",
         protocol: "Stake DAO, Mover",
         title: "Economic Longevity Panel",
@@ -2205,7 +2214,7 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "17h10",
         finishTime: "117h30",
         duration: "20 min",
@@ -2217,7 +2226,7 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "17h35",
         finishTime: "17h55",
         duration: "20 min",
@@ -2229,7 +2238,7 @@ let events_program = {
       {
         number: "8",
         track: "Finance",
-        stage: "",
+        stage: "Forest stage",
         startTime: "18h00",
         finishTime: "18h45",
         duration: "45 min",
@@ -2243,7 +2252,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "10h00",
         finishTime: "10h45",
         duration: "45 min",
@@ -2255,7 +2264,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "10h50",
         finishTime: "10h35",
         duration: "45 min",
@@ -2267,7 +2276,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "11h40",
         finishTime: "12h25",
         duration: "45 min",
@@ -2279,7 +2288,7 @@ let events_program = {
       {
         number: "7",
         track: "Impact & Public Goods",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "12h30",
         finishTime: "15h00",
         duration: "2hrs 30 min",
@@ -2291,7 +2300,7 @@ let events_program = {
       {
         number: "",
         track: "Lunch Break",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "13h40",
         finishTime: "14h30",
         duration: "",
@@ -2303,7 +2312,7 @@ let events_program = {
       {
         number: "10",
         track: "Community",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "15h30",
         finishTime: "17h30",
         duration: "2hr",
@@ -2319,11 +2328,11 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "10h00",
         finishTime: "10h45",
         duration: "45 min",
-        format: "Talk",
+        format: "Panel",
         speaker:
           "Naomie Abergel - artist + Haitham Mengad - StemsDAO + Guy Pirelli - Shrine House + Austin Worrel - KINO Moderated by Samuel del Real",
         protocol: "StemsDAO, Shrine House, KINO",
@@ -2332,7 +2341,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "11h50",
         finishTime: "11h10",
         duration: "20 min",
@@ -2344,7 +2353,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "11h15",
         finishTime: "11h35",
         duration: "20 min",
@@ -2356,7 +2365,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "11h40",
         finishTime: "12h00",
         duration: "20 min",
@@ -2368,7 +2377,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Sky stage",
         startTime: "12h05",
         finishTime: "12h50",
         duration: "45 min",
@@ -2405,7 +2414,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Sky stage",
         startTime: "14h30",
         finishTime: "14h50",
         duration: "20 min",
@@ -2417,7 +2426,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Sky stage",
         startTime: "14h55",
         finishTime: "15h15",
         duration: "20 min",
@@ -2429,7 +2438,7 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
+        stage: "Sky stage",
         startTime: "15h20",
         finishTime: "16h05",
         duration: "45 min",
@@ -2441,9 +2450,9 @@ let events_program = {
       {
         number: "1",
         track: "Regenerative Thinking",
-        stage: "",
-        startTime: "16h35",
-        finishTime: "16h55",
+        stage: "Sky stage",
+        startTime: "16h10",
+        finishTime: "16h30",
         duration: "20 min",
         format: "Talk",
         speaker: "Jordan Spence",
@@ -2453,9 +2462,9 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
-        startTime: "16h10 ",
-        finishTime: "16h30",
+        stage: "Sky stage",
+        startTime: "16h35",
+        finishTime: "16h55",
         duration: "20 min",
         format: "Talk",
         speaker: "Nader Dabit",
@@ -2465,10 +2474,10 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Sky stage",
         startTime: "17h00",
-        finishTime: "17h45",
-        duration: "45 min",
+        finishTime: "18h00",
+        duration: "1hr",
         format: "Other",
         speaker: "Justin Holmes",
         protocol: "Threshold",
@@ -2477,7 +2486,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Sky stage",
         startTime: "17h50",
         finishTime: "18h35",
         duration: "45 min",
@@ -2491,7 +2500,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "10h00",
         finishTime: "10h20",
         duration: "20 min",
@@ -2503,7 +2512,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "10h25",
         finishTime: "10h45",
         duration: "20 min",
@@ -2515,7 +2524,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Forest stage",
         startTime: "10h50",
         finishTime: "11h10",
         duration: "20 min",
@@ -2527,7 +2536,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "11h15",
         finishTime: "11h35",
         duration: "20 min",
@@ -2539,7 +2548,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist ",
-        stage: "",
+        stage: "Forest stage",
         startTime: "11h40",
         finishTime: "12h00",
         duration: "20 min",
@@ -2551,7 +2560,7 @@ let events_program = {
       {
         number: "2",
         track: "DAOs & Coordination Culture by The Daoist",
-        stage: "",
+        stage: "Forest stage",
         startTime: "12h05",
         finishTime: "13h00",
         duration: "55 min",
@@ -2575,7 +2584,7 @@ let events_program = {
       {
         number: "2",
         track: " DAOs & Coordination Culture",
-        stage: "",
+        stage: "Forest stage",
         startTime: "14h30",
         finishTime: "14h50",
         duration: "20 min",
@@ -2585,21 +2594,21 @@ let events_program = {
         title: "Trifolds (Role-sets) as the foundation for Autonomy & Coordination in DAOs.",
       },
       {
-        number: "2",
-        track: " DAOs & Coordination Culture",
-        stage: "",
+        number: "6",
+        track: "Blockchain Tech & Scalability",
+        stage: "Forest stage",
         startTime: "14h55",
         finishTime: "15h15",
         duration: "20 min",
         format: "Talk",
-        speaker: "-",
-        protocol: "-",
-        title: "-",
+        speaker: "Maria Guryeva",
+        protocol: "Neon Labs",
+        title: "The challenges of enabling EVM-functionality on Solana blockchain",
       },
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h20",
         finishTime: "15h40",
         duration: "20 min",
@@ -2611,7 +2620,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Forest stage",
         startTime: "15h45",
         finishTime: "16h05",
         duration: "20 min",
@@ -2623,7 +2632,7 @@ let events_program = {
       {
         number: "6",
         track: "Blockchain Tech & Scalability",
-        stage: "",
+        stage: "Forest stage",
         startTime: "16h10",
         finishTime: "16h30",
         duration: "20 min",
@@ -2636,7 +2645,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Forest stage",
         startTime: "16h35",
         finishTime: "17h20",
         duration: "45 min",
@@ -2648,7 +2657,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Forest stage",
         startTime: "17h25",
         finishTime: "18h05",
         duration: "45 min",
@@ -2662,7 +2671,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "10h00",
         finishTime: "10h45",
         duration: "45 min",
@@ -2674,7 +2683,7 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "10h55",
         finishTime: "11h40",
         duration: "45 min",
@@ -2686,9 +2695,9 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "11h45",
-        finishTime: "12h20",
+        finishTime: "12h30",
         duration: "45 min",
         format: "Workshop",
         speaker: "Camila Ramos",
@@ -2698,9 +2707,9 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
-        startTime: "12h25",
-        finishTime: "13h05",
+        stage: "Co-Creation area",
+        startTime: "12h35",
+        finishTime: "13h20",
         duration: "45 min",
         format: "Workshop",
         speaker: "Solange Gueiros",
@@ -2710,9 +2719,9 @@ let events_program = {
       {
         number: "5",
         track: "Education",
-        stage: "",
-        startTime: "13h10",
-        finishTime: "13h55",
+        stage: "Co-Creation area",
+        startTime: "13h25",
+        finishTime: "14h10",
         duration: "45 min",
         format: "Workshop",
         speaker: "Hanno Cornelius",
@@ -2722,9 +2731,9 @@ let events_program = {
       {
         number: "",
         track: "Lanch Break",
-        stage: "",
-        startTime: "14h30",
-        finishTime: "16h00",
+        stage: "Co-Creation area",
+        startTime: "14h10",
+        finishTime: "15h00",
         duration: "",
         format: "",
         speaker: "",
@@ -2734,7 +2743,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "15h00",
         finishTime: "15h45",
         duration: "45 min",
@@ -2746,7 +2755,7 @@ let events_program = {
       {
         number: "3",
         track: "Art, NFTs, Innovation & Shaping Culture",
-        stage: "",
+        stage: "Co-Creation area",
         startTime: "15h50",
         finishTime: "16h35",
         duration: "45 min",
@@ -2938,7 +2947,8 @@ ${
 ⏳  ${event[0].startTime} - ${event[0].finishTime} | 🕓 ${event[0].duration}
 🗣  ${event[0].speaker}
 🎤 ${event[0].format}
-    `
+📍 ${event[0].stage}
+`
 }`;
       });
       newNowEvents = [...newNowEvents, ...eventNow];
@@ -3012,7 +3022,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Sky stage, July 6</b>
@@ -3040,7 +3051,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Sky stage, July 7</b>
@@ -3064,7 +3076,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Sky stage, july 8</b>
@@ -3089,7 +3102,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Forest stage, July 6</b>
@@ -3112,7 +3126,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Forest stage, Juky 7</b>
@@ -3136,7 +3151,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Foreast stage, july 8</b>
@@ -3161,7 +3177,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Co-Creation area, July 6</b>
@@ -3185,7 +3202,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Co-Creation area, July 7</b>
@@ -3209,7 +3227,8 @@ ${
 📢 ${el.protocol}
 ⏳ ${el.startTime} - ${el.finishTime} | 🕓 ${el.duration}
 🗣 Speaker: ${el.speaker}
-🎤 Format: ${el.format}`
+🎤 Format: ${el.format}
+📍 Stage: ${el.stage}`
 }`;
     });
     ctx.replyWithHTML(`<b>Co-Creation area, July 8</b>
