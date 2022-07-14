@@ -28,14 +28,6 @@ const COMMANDS = [
     command: "venue",
     description: "The Venue",
   },
-  // {
-  //   command: "sponsors",
-  //   description: "The Venue",
-  // },
-  // {
-  //   command: "speakers",
-  //   description: "The Venue",
-  // },
   {
     command: "help",
     description: "Show help/main menu",
@@ -72,11 +64,13 @@ Here's how I can help:
 
 /program - Show conference program
 /sideevents - Side events
-/ticket - Buy tickets
-/venue - The Venue
 /now - Current events
 /sideeventsnow - Current side events
-/help - Show help/main menu`)
+/ticket - Buy tickets
+/venue - The Venue
+/help - Show help/main menu
+
+Contact developers @sashanoxon @Nasirdin1`)
 );
 bot.command("help", (ctx) => {
   return ctx.replyWithMarkdown(getHelp());
