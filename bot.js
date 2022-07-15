@@ -42,7 +42,7 @@ const getHelp = () => {
   return helpText;
 };
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf('5418711474:AAEYZnKverLKL-tFgoZ8TXEksdb3Adq4N20');
 
 bot.telegram.setMyCommands(COMMANDS);
 
