@@ -1,7 +1,7 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
-
-let users = []
+const { readFile, writeFile, unLink } = require("fs").promises;
+let users = [];
 
 const COMMANDS = [
   {
@@ -42,11 +42,47 @@ const getHelp = () => {
   return helpText;
 };
 
-const bot = new Telegraf('5418711474:AAEYZnKverLKL-tFgoZ8TXEksdb3Adq4N20');
+const bot = new Telegraf(process.env.BOT_TOKEN);
+
+const rFile = () => {
+  return readFile(`${__dirname}/users.json`, { encoding: "utf8" }).then((text) => JSON.parse(text));
+};
+
+const wFile = (users) => {
+  writeFile(`${__dirname}/users.json`, JSON.stringify(users), { encoding: "utf8" });
+  return false;
+};
 
 bot.telegram.setMyCommands(COMMANDS);
 
-bot.start((ctx) => {
+bot.start(async (ctx) => {
+    const users = await rFile();
+    const username = ctx.message.from.username;
+    const chatId = ctx.message.chat.id;
+    const newUser = {
+      chatId: chatId,
+      username: username,
+    };
+    if (!users[0]) {
+      const newUsers = [{ userId: 1, ...newUser }];
+      wFile(newUsers);
+    } else {
+      let findUser = false;
+      users.filter((user) => {
+        if (user.username === username) {
+          findUser = true;
+        }
+      });
+      if (!findUser) {
+        const newArr = users.map((us) => {
+          return us.userId;
+        });
+        userId = Math.max(...newArr) + 1;
+
+        const newUsers = [...users, { userId, ...newUser }];
+        wFile(newUsers);
+      }
+  }
   ctx.replyWithMarkdown(
     `Hi👋 \n\n\
 I'm a chatbot *EthCC* and I'm here to help you spend time on \
@@ -58,6 +94,22 @@ I will help you keep track of the schedule \n\n\
 Use the convenient menu to quickly find the information you need👇\n\n` + getHelp()
   );
 });
+bot.command("getallusers", async (ctx) => {
+  const users = await rFile();
+  const res = users.map((user) => {
+    return `Id: ${user.userId}
+Username: @${user.username}
+ChatId: ${user.chatId}`
+  })
+  ctx.replyWithHTML(`All users ethparisbot:
+
+${res.join(`
+
+`)}
+
+Total number of users: ${users.length}`
+)
+})
 bot.help((ctx) =>
   ctx.replyWithHTML(`Hi, ${ctx.message.from.username}
 Here's how I can help:
@@ -4447,7 +4499,7 @@ const lastResFunc = (res, count) => {
 };
 
 const programViewFunc = (res, count) => {
-  if(res.length > 0 && res.length < 11) {
+  if (res.length > 0 && res.length < 11) {
     const lastResult = lastResFunc([res], count);
     return [lastResult];
   } else if (res.length > 10) {
@@ -4459,7 +4511,7 @@ const programViewFunc = (res, count) => {
     const lastResult = lastResFunc(arr, count);
     return [lastResult];
   } else {
-    console.log('error');
+    console.log("error");
   }
 };
 // Talk Talk Talk
@@ -4496,7 +4548,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_2", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july19.filter((event) => {
@@ -4513,7 +4565,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_3", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july19.filter((event) => {
@@ -4530,7 +4582,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_4", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july19.filter((event) => {
@@ -4547,7 +4599,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_5", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july19.filter((event) => {
@@ -4564,10 +4616,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_6", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july19.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july19.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 6);
@@ -4581,10 +4633,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_7", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july19.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july19.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 7);
@@ -4598,10 +4650,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_8", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july19.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july19.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 8);
@@ -4615,10 +4667,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_19_9", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july19.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july19.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 9);
@@ -4631,7 +4683,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("type_workshop_19", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july19.filter((event) => {
@@ -4642,12 +4694,9 @@ bot.action("type_workshop_19", async (ctx) => {
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
 `)}`,
-    Markup.inlineKeyboard([
-      [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
-    ])
+    Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
-
 
 bot.action("type_talk_20", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
@@ -4681,7 +4730,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_2", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july20.filter((event) => {
@@ -4698,7 +4747,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_3", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july20.filter((event) => {
@@ -4715,7 +4764,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_4", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july20.filter((event) => {
@@ -4732,7 +4781,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_5", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july20.filter((event) => {
@@ -4749,10 +4798,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_6", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july20.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july20.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 6);
@@ -4766,10 +4815,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_7", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july20.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july20.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 7);
@@ -4783,10 +4832,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_8", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july20.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july20.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 8);
@@ -4800,10 +4849,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_20_9", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july20.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july20.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 9);
@@ -4816,7 +4865,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("type_workshop_20", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july20.filter((event) => {
@@ -4827,12 +4876,9 @@ bot.action("type_workshop_20", async (ctx) => {
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
 `)}`,
-    Markup.inlineKeyboard([
-      [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
-    ])
+    Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
-
 
 bot.action("type_talk_21", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
@@ -4866,7 +4912,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_21_2", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july21.filter((event) => {
@@ -4883,14 +4929,15 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_21_3", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july21.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 3);
-  ctx.replyWithHTML(`<b>Thursday, July 21st</b>
+  ctx.replyWithHTML(
+    `<b>Thursday, July 21st</b>
   ${newRes[0].join(`
 `)}`,
     Markup.inlineKeyboard([
@@ -4899,7 +4946,7 @@ bot.action("next_talk_by_day_21_3", async (ctx) => {
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_21_4", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july21.filter((event) => {
@@ -4916,7 +4963,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_21_5", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july21.filter((event) => {
@@ -4933,10 +4980,10 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("next_talk_by_day_21_6", async (ctx) => {
-    await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
-    const res = programEvents.july21.filter((event) => {
+  await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+  const res = programEvents.july21.filter((event) => {
     return event.type[0] == "T";
   });
   const newRes = programViewFunc(res, 6);
@@ -4949,7 +4996,7 @@ ${newRes[0].join(`
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
     ])
   );
-})
+});
 bot.action("type_workshop_21", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
   const res = programEvents.july21.filter((event) => {
@@ -4960,9 +5007,7 @@ bot.action("type_workshop_21", async (ctx) => {
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
 `)}`,
-    Markup.inlineKeyboard([
-      [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
-    ])
+    Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
 bot.action("type_idea_21", async (ctx) => {
@@ -4975,9 +5020,7 @@ bot.action("type_idea_21", async (ctx) => {
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
 `)}`,
-    Markup.inlineKeyboard([
-      [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
-    ])
+    Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
 
@@ -4985,71 +5028,70 @@ const zeroTime = (date) => {
   if (date.toString().length == 1 && date !== 0) {
     return `0${date}`;
   } else if (date == 0) {
-    return`0${date}`
+    return `0${date}`;
   } else {
     return date;
   }
 };
 
 bot.command("now", async (ctx) => {
-  const nDate = new Date().toLocaleString('en-US', {
-    timeZone: 'Europe/Paris'
+  const nDate = new Date().toLocaleString("ru-RU", {
+    timeZone: "Europe/Paris",
   });
-  const newDate = nDate.split(' ')
-  const newTime = newDate[1].split(':')
+  const newDate = nDate.split(" ");
+  const newTime = newDate[1].split(":");
   const getTime = `${zeroTime(newTime[0])}:${zeroTime(newTime[1])}`;
-  const newGetDate = newDate[0].split('/')
-  const getDate = newGetDate[1]
-  const getMonth = newGetDate[0];
-    const newEvents = () => {
-      if(getDate == 19 && getMonth == 7) {
-        const events = programEvents.july19
-        const nowArrayEvents = events.filter((event) => {
-            if (getTime >= event.startTime && getTime <= event.endTime) {
-              return event;
-            }
-          })
-        return nowArrayEvents
-      } else if(getDate == 20 && getMonth == 7){
-        const events = programEvents.july20
-        const nowArrayEvents = events.filter((event) => {
-            if (getTime >= event.startTime && getTime <= event.endTime) {
-              return event;
-            }
-          })
-        return nowArrayEvents
-      }else if (getDate == 21 && getMonth == 7) {
-        const events = programEvents.july21
-        const nowArrayEvents = events.filter((event) => {
-            if (getTime >= event.startTime && getTime <= event.endTime) {
-              return event;
-            }
-          })
-        return nowArrayEvents
-      } else {
-        return false
-      }
-    }
-
-    const newEventsArr = newEvents()
-    if(newEventsArr.length <= 0 || !newEventsArr) {
-      ctx.replyWithHTML("Porgram list is empty");
+  const newGetDate = newDate[0].split(".");
+  const getDate = newGetDate[0];
+  const getMonth = newGetDate[1];
+  const newEvents = () => {
+    if (getDate == 19 && getMonth == 7) {
+      const events = programEvents.july19;
+      const nowArrayEvents = events.filter((event) => {
+        if (getTime >= event.startTime && getTime <= event.endTime) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
+    } else if (getDate == 20 && getMonth == 7) {
+      const events = programEvents.july20;
+      const nowArrayEvents = events.filter((event) => {
+        if (getTime >= event.startTime && getTime <= event.endTime) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
+    } else if (getDate == 21 && getMonth == 7) {
+      const events = programEvents.july21;
+      const nowArrayEvents = events.filter((event) => {
+        if (getTime >= event.startTime && getTime <= event.endTime) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
+    } else {
       return false;
     }
-    const nowEvents = newEventsArr.map((event) => {
-      return `
+  };
+
+  const newEventsArr = newEvents();
+  if (newEventsArr.length <= 0 || !newEventsArr) {
+    ctx.replyWithHTML("Porgram list is empty");
+    return false;
+  }
+  const nowEvents = newEventsArr.map((event) => {
+    return `
 📌 <b>${event.eventName}</b>
 🗣 ${event.speaker}
 🕒 ${event.date} | ${event.startTime} - ${event.endTime} | ${event.duation}
 📍 ${event.venue}
-📢 ${event.type}`
-    })    
-    ctx.replyWithHTML(`Now:
+📢 ${event.type}`;
+  });
+  ctx.replyWithHTML(`Now:
 ${nowEvents.join(`
 
 `)}`);
-})
-
+});
 
 bot.action("back_to_selection_program", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
@@ -5058,7 +5100,7 @@ bot.action("back_to_selection_program", async (ctx) => {
       inline_keyboard: program_by_day_keyboard,
     },
   });
-})
+});
 
 const sideEvents_by_day_keyboard = [
   [
@@ -5770,105 +5812,104 @@ bot.action("next_two_21", async (ctx) => {
 });
 
 bot.command("sideeventsnow", (ctx) => {
-  const nDate = new Date().toLocaleString('en-US', {
-    timeZone: 'Europe/Paris'
+  const nDate = new Date().toLocaleString("ru-RU", {
+    timeZone: "Europe/Paris",
   });
-  
-  const newDate = nDate.split(' ')
-  const newTime = newDate[1].split(':')
+
+  const newDate = nDate.split(" ");
+  const newTime = newDate[1].split(":");
   const getTime = `${zeroTime(newTime[0])}:${zeroTime(newTime[1])}`;
-  const newGetDate = newDate[0].split('/')
-  const getDate = newGetDate[1]
-  const getMonth = newGetDate[0];
+  const newGetDate = newDate[0].split(".");
+  const getDate = newGetDate[0];
+  const getMonth = newGetDate[1];
   const newEvents = () => {
-    if(getDate == 15 && getMonth == 7) {
-      console.log(getDate);
-      const events = sideEvents.july15
+    if (getDate == 15 && getMonth == 7) {
+      const events = sideEvents.july15;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-          return false
-        })
-      return nowArrayEvents
-    } else if(getDate == 16 && getMonth == 7){
-      const events = sideEvents.july16
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+        return false;
+      });
+      return nowArrayEvents;
+    } else if (getDate == 16 && getMonth == 7) {
+      const events = sideEvents.july16;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 17 && getMonth == 7) {
-      const events = sideEvents.july17
+      const events = sideEvents.july17;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 18 && getMonth == 7) {
-      const events = sideEvents.july18
+      const events = sideEvents.july18;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 19 && getMonth == 7) {
-      const events = sideEvents.july19
+      const events = sideEvents.july19;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 20 && getMonth == 7) {
-      const events = sideEvents.july20
+      const events = sideEvents.july20;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 21 && getMonth == 7) {
-      const events = sideEvents.july21
+      const events = sideEvents.july21;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 22 && getMonth == 7) {
-      const events = sideEvents.july22
+      const events = sideEvents.july22;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 23 && getMonth == 7) {
-      const events = sideEvents.july23
+      const events = sideEvents.july23;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else if (getDate == 24 && getMonth == 7) {
-      const events = sideEvents.july24
+      const events = sideEvents.july24;
       const nowArrayEvents = events.filter((event) => {
-          if (getTime >= event.startTime && getTime <= (!event.endTime ? '00:00' : event.endTime)) {
-            return event;
-          }
-        })
-      return nowArrayEvents
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
     } else {
-      return false
+      return false;
     }
-  }
-  const newEventsArr = newEvents()
-  if(newEventsArr.length <= 0 || !newEventsArr) {
+  };
+  const newEventsArr = newEvents();
+  if (newEventsArr.length <= 0 || !newEventsArr) {
     ctx.replyWithHTML("Porgram list is empty");
     return false;
   }
@@ -5880,15 +5921,18 @@ bot.command("sideeventsnow", (ctx) => {
 💶 ${events.price}
 📢 ${events.eventType}
 ${!events.link ? "" : `<i><a href='${events.link}'>Website</a></i> ↗`}
-    `
-  })
-  ctx.replyWithHTML(`Now:
+    `;
+  });
+  ctx.replyWithHTML(
+    `Now:
 ${nowEvents.join(`
 
-`)}`, {
-  disable_web_page_preview: true,
-})
-})
+`)}`,
+    {
+      disable_web_page_preview: true,
+    }
+  );
+});
 
 bot.action("back_to_selection", async (ctx) => {
   try {
@@ -5903,7 +5947,7 @@ bot.action("back_to_selection", async (ctx) => {
   }
 });
 
-bot.command("venue", async(ctx) => {
+bot.command("venue", async (ctx) => {
   ctx.replyWithHTML(`<b>The Venue</b>
 The Maison de la Mutualité will be accessible from 09 AM to 07 PM all three days.
 
@@ -5911,8 +5955,8 @@ Maison de la Mutualité
 22 Rue Saint Victor,
 75005 Paris.
 
-<a href="https://www.google.com/maps/place/Maison+de+la+Mutualit%C3%A9/@48.848713,2.350635,17z/data=!3m1!4b1!4m5!3m4!1s0x47e671e4331ed5b5:0x2a595de9d6bf634b!8m2!3d48.848713!4d2.350635">Open with Google Maps</a>`)
-})
+<a href="https://www.google.com/maps/place/Maison+de+la+Mutualit%C3%A9/@48.848713,2.350635,17z/data=!3m1!4b1!4m5!3m4!1s0x47e671e4331ed5b5:0x2a595de9d6bf634b!8m2!3d48.848713!4d2.350635">Open with Google Maps</a>`);
+});
 
 bot.launch();
 
