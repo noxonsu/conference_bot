@@ -4,10 +4,10 @@ const { readFile, writeFile, unLink } = require("fs").promises;
 let users = [];
 
 const COMMANDS = [
-  {
-    command: "now",
-    description: "Current events",
-  },
+  // {
+  //   command: "now",
+  //   description: "Current events",
+  // },
   {
     command: "sideeventsnow",
     description: "Current side events",
@@ -115,7 +115,6 @@ Here's how I can help:
 
 /program - Show conference program
 /sideevents - Side events
-/now - Current events
 /sideeventsnow - Current side events
 /ticket - Buy tickets
 /venue - The Venue
@@ -3762,6 +3761,19 @@ let sideEvents = {
       eventType: "Conference",
     },
     {
+      eventsName: "Neon Talk for devs",
+      organizer: "",
+      date: "2022-07-18",
+      startTime: "17:00",
+      endTime: "21:00",
+      location: "Cyclone le studio 16 Rue Vulpian 75013 Paris France",
+      price: "Free",
+      link: " https://neon-labs.org/",
+      description:
+        " ",
+      eventType: "Event",
+    },
+    {
       eventsName: "Kiln x Flowdesk Boat Party",
       organizer: "",
       date: "2022-07-20",
@@ -5094,64 +5106,64 @@ const zeroTime = (date) => {
   }
 };
 
-bot.command("now", async (ctx) => {
-  const nDate = new Date().toLocaleString("ru-RU", {
-    timeZone: "Europe/Paris",
-  });
-  const newDate = nDate.split(" ");
-  const newTime = newDate[1].split(":");
-  const getTime = `${zeroTime(newTime[0])}:${zeroTime(newTime[1])}`;
-  const newGetDate = newDate[0].split(".");
-  const getDate = newGetDate[0];
-  const getMonth = newGetDate[1];
-  const newEvents = () => {
-    if (getDate == 19 && getMonth == 7) {
-      const events = programEvents.july19;
-      const nowArrayEvents = events.filter((event) => {
-        if (getTime >= event.startTime && getTime <= event.endTime) {
-          return event;
-        }
-      });
-      return nowArrayEvents;
-    } else if (getDate == 20 && getMonth == 7) {
-      const events = programEvents.july20;
-      const nowArrayEvents = events.filter((event) => {
-        if (getTime >= event.startTime && getTime <= event.endTime) {
-          return event;
-        }
-      });
-      return nowArrayEvents;
-    } else if (getDate == 21 && getMonth == 7) {
-      const events = programEvents.july21;
-      const nowArrayEvents = events.filter((event) => {
-        if (getTime >= event.startTime && getTime <= event.endTime) {
-          return event;
-        }
-      });
-      return nowArrayEvents;
-    } else {
-      return false;
-    }
-  };
+// bot.command("now", async (ctx) => {
+//   const nDate = new Date().toLocaleString("ru-RU", {
+//     timeZone: "Europe/Paris",
+//   });
+//   const newDate = nDate.split(" ");
+//   const newTime = newDate[1].split(":");
+//   const getTime = `${zeroTime(newTime[0])}:${zeroTime(newTime[1])}`;
+//   const newGetDate = newDate[0].split(".");
+//   const getDate = newGetDate[0];
+//   const getMonth = newGetDate[1];
+//   const newEvents = () => {
+//     if (getDate == 19 && getMonth == 7) {
+//       const events = programEvents.july19;
+//       const nowArrayEvents = events.filter((event) => {
+//         if (getTime >= event.startTime && getTime <= event.endTime) {
+//           return event;
+//         }
+//       });
+//       return nowArrayEvents;
+//     } else if (getDate == 20 && getMonth == 7) {
+//       const events = programEvents.july20;
+//       const nowArrayEvents = events.filter((event) => {
+//         if (getTime >= event.startTime && getTime <= event.endTime) {
+//           return event;
+//         }
+//       });
+//       return nowArrayEvents;
+//     } else if (getDate == 21 && getMonth == 7) {
+//       const events = programEvents.july21;
+//       const nowArrayEvents = events.filter((event) => {
+//         if (getTime >= event.startTime && getTime <= event.endTime) {
+//           return event;
+//         }
+//       });
+//       return nowArrayEvents;
+//     } else {
+//       return false;
+//     }
+//   };
 
-  const newEventsArr = newEvents();
-  if (newEventsArr.length <= 0 || !newEventsArr) {
-    ctx.replyWithHTML("Porgram list is empty");
-    return false;
-  }
-  const nowEvents = newEventsArr.map((event) => {
-    return `
-📌 <b>${event.eventName}</b>
-🗣 ${event.speaker}
-🕒 ${event.date} | ${event.startTime} - ${event.endTime} | ${event.duation}
-📍 ${event.venue}
-📢 ${event.type}`;
-  });
-  ctx.replyWithHTML(`Now:
-${nowEvents.join(`
+//   const newEventsArr = newEvents();
+//   if (newEventsArr.length <= 0 || !newEventsArr) {
+//     ctx.replyWithHTML("Porgram list is empty");
+//     return false;
+//   }
+//   const nowEvents = newEventsArr.map((event) => {
+//     return `
+// 📌 <b>${event.eventName}</b>
+// 🗣 ${event.speaker}
+// 🕒 ${event.date} | ${event.startTime} - ${event.endTime} | ${event.duation}
+// 📍 ${event.venue}
+// 📢 ${event.type}`;
+//   });
+//   ctx.replyWithHTML(`Now:
+// ${nowEvents.join(`
 
-`)}`);
-});
+// `)}`);
+// });
 
 bot.action("back_to_selection_program", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
@@ -5425,7 +5437,9 @@ ${res[0].join(`
         ctx.replyWithHTML(
           `Wednesday, July 20
         
-    ${events.join(``)}`,
+${events.join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5461,7 +5475,8 @@ ${res[0].join(``)}
           `Thursday, July 21
         
     ${events.join(`
-    `)}`,
+    `)}
+@ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5483,7 +5498,9 @@ bot.action("sideEvents_by_day_22", async (ctx) => {
       ctx.replyWithHTML(
         `Friday, July 22
         
-    ${res[0].join(``)}`,
+${res[0].join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_22")],
           [Markup.button.callback("↩ Back to selection", "back_to_selection")],
@@ -5570,7 +5587,9 @@ ${res[0].join(``)}
           `Sunday, July 24
         
     ${events.join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5612,7 +5631,9 @@ bot.action("next_18", async (ctx) => {
         `Monday, July 18
         
     ${res[1].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_18")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5652,7 +5673,9 @@ bot.action("next_19", async (ctx) => {
         `Tuesday, July 19
         
     ${res[1].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_19")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5693,7 +5716,9 @@ bot.action("next_20", async (ctx) => {
         `Wednesday, July 20
         
     ${res[1].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_20")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5734,7 +5759,9 @@ bot.action("next_21", async (ctx) => {
         `Thursday, July 21
         
     ${res[1].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_21")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5775,7 +5802,9 @@ bot.action("next_22", async (ctx) => {
         `Friday, July 22
         
     ${res[1].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_22")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5859,7 +5888,9 @@ bot.action("next_two_20", async (ctx) => {
         `Wednesday, July 20
         
     ${res[2].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "next_20")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5899,7 +5930,9 @@ bot.action("next_two_21", async (ctx) => {
         `Thursday, July 21
         
     ${res[2].join(`
-    `)}`,
+    `)}
+
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "next_21")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
