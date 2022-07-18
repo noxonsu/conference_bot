@@ -1,7 +1,1 @@
-[
-  { "userId": 1, "chatId": 654924716, "username": "Nasirdin1" },
-  { "userId": 2, "chatId": 877232233, "username": "NickCZ" },
-  { "userId": 3, "chatId": 176410611, "username": "NickCZ" },
-  { "userId": 4, "chatId": 464222613, "username": "michaelpetch" },
-  { "userId": 5, "chatId": 119618870, "username": "nadia_semykina" }
-]
+[{ "userId": 1, "chatId": 654924716, "username": "Nasirdin1" }]
