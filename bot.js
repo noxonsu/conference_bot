@@ -5213,6 +5213,7 @@ const sideEvents_by_day_keyboard = [
   ],
 ];
 
+
 const sideEventsFunc = (sideEventsArray) => {
   if (!sideEventsArray || sideEventsArray.length === 0) {
     ctx.replyWithHTML("Side Events are empty");
