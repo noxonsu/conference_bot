@@ -56,32 +56,32 @@ const wFile = (users) => {
 bot.telegram.setMyCommands(COMMANDS);
 
 bot.start(async (ctx) => {
-    const users = await rFile();
-    const username = ctx.message.from.username;
-    const chatId = ctx.message.chat.id;
-    const newUser = {
-      chatId: chatId,
-      username: username,
-    };
-    if (!users[0]) {
-      const newUsers = [{ userId: 1, ...newUser }];
-      wFile(newUsers);
-    } else {
-      let findUser = false;
-      users.filter((user) => {
-        if (user.username === username) {
-          findUser = true;
-        }
-      });
-      if (!findUser) {
-        const newArr = users.map((us) => {
-          return us.userId;
-        });
-        userId = Math.max(...newArr) + 1;
-
-        const newUsers = [...users, { userId, ...newUser }];
-        wFile(newUsers);
+  const users = await rFile();
+  const username = ctx.message.from.username;
+  const chatId = ctx.message.chat.id;
+  const newUser = {
+    chatId: chatId,
+    username: username,
+  };
+  if (!users[0]) {
+    const newUsers = [{ userId: 1, ...newUser }];
+    wFile(newUsers);
+  } else {
+    let findUser = false;
+    users.filter((user) => {
+      if (user.username === username) {
+        findUser = true;
       }
+    });
+    if (!findUser) {
+      const newArr = users.map((us) => {
+        return us.userId;
+      });
+      userId = Math.max(...newArr) + 1;
+
+      const newUsers = [...users, { userId, ...newUser }];
+      wFile(newUsers);
+    }
   }
   ctx.replyWithMarkdown(
     `Hi👋 \n\n\
@@ -99,17 +99,16 @@ bot.command("getallusers", async (ctx) => {
   const res = users.map((user) => {
     return `Id: ${user.userId}
 Username: @${user.username}
-ChatId: ${user.chatId}`
-  })
+ChatId: ${user.chatId}`;
+  });
   ctx.replyWithHTML(`All users ethparisbot:
 
 ${res.join(`
 
 `)}
 
-Total number of users: ${users.length}`
-)
-})
+Total number of users: ${users.length}`);
+});
 bot.help((ctx) =>
   ctx.replyWithHTML(`Hi, ${ctx.message.from.username}
 Here's how I can help:
@@ -4524,7 +4523,9 @@ bot.action("type_talk_19", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_1")],
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
@@ -4541,7 +4542,9 @@ bot.action("next_talk_by_day_19_1", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "type_talk_19")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_2")],
@@ -4558,7 +4561,9 @@ bot.action("next_talk_by_day_19_2", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_1")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_3")],
@@ -4575,7 +4580,8 @@ bot.action("next_talk_by_day_19_3", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_2")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_4")],
@@ -4592,7 +4598,9 @@ bot.action("next_talk_by_day_19_4", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_3")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_5")],
@@ -4609,7 +4617,9 @@ bot.action("next_talk_by_day_19_5", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_4")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_6")],
@@ -4626,7 +4636,9 @@ bot.action("next_talk_by_day_19_6", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_5")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_7")],
@@ -4643,7 +4655,9 @@ bot.action("next_talk_by_day_19_7", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_6")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_8")],
@@ -4660,7 +4674,9 @@ bot.action("next_talk_by_day_19_8", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_7")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_19_9")],
@@ -4677,7 +4693,9 @@ bot.action("next_talk_by_day_19_9", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_19_8")],
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
@@ -4693,7 +4711,9 @@ bot.action("type_workshop_19", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Tuesday, July 19th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
@@ -4707,7 +4727,9 @@ bot.action("type_talk_20", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_1")],
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
@@ -4723,7 +4745,9 @@ bot.action("next_talk_by_day_20_1", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "type_talk_20")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_2")],
@@ -4740,7 +4764,9 @@ bot.action("next_talk_by_day_20_2", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_1")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_3")],
@@ -4757,7 +4783,9 @@ bot.action("next_talk_by_day_20_3", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_2")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_4")],
@@ -4774,7 +4802,9 @@ bot.action("next_talk_by_day_20_4", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_3")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_5")],
@@ -4791,7 +4821,9 @@ bot.action("next_talk_by_day_20_5", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_4")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_6")],
@@ -4808,7 +4840,9 @@ bot.action("next_talk_by_day_20_6", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_5")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_7")],
@@ -4825,7 +4859,9 @@ bot.action("next_talk_by_day_20_7", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_6")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_8")],
@@ -4842,7 +4878,9 @@ bot.action("next_talk_by_day_20_8", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_7")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_20_9")],
@@ -4859,7 +4897,9 @@ bot.action("next_talk_by_day_20_9", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_20_8")],
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
@@ -4875,7 +4915,9 @@ bot.action("type_workshop_20", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Wednesday, July 20th</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
@@ -4889,7 +4931,9 @@ bot.action("type_talk_21", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("➡ Next", "next_talk_by_day_21_1")],
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
@@ -4905,7 +4949,9 @@ bot.action("next_talk_by_day_21_1", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "type_talk_21")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_21_2")],
@@ -4922,7 +4968,9 @@ bot.action("next_talk_by_day_21_2", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_21_1")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_21_3")],
@@ -4939,7 +4987,9 @@ bot.action("next_talk_by_day_21_3", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
   ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_21_2")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_21_4")],
@@ -4956,7 +5006,9 @@ bot.action("next_talk_by_day_21_4", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_21_3")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_21_5")],
@@ -4973,7 +5025,9 @@ bot.action("next_talk_by_day_21_5", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_21_4")],
       [Markup.button.callback("➡ Next", "next_talk_by_day_21_6")],
@@ -4990,7 +5044,9 @@ bot.action("next_talk_by_day_21_6", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([
       [Markup.button.callback("⬅ Prev", "next_talk_by_day_21_5")],
       [Markup.button.callback("↩ Bact to select", "back_to_selection_program")],
@@ -5006,7 +5062,9 @@ bot.action("type_workshop_21", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
@@ -5019,7 +5077,9 @@ bot.action("type_idea_21", async (ctx) => {
   ctx.replyWithHTML(
     `<b>Thursday, July 21st</b>
 ${newRes[0].join(`
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     Markup.inlineKeyboard([[Markup.button.callback("↩ Bact to select", "back_to_selection_program")]])
   );
 });
@@ -5166,7 +5226,6 @@ const sideEventsFunc = (sideEventsArray) => {
       return arr.map((events) => {
         return `
 📌 <b>${events.eventsName}</b>
-✏ ${events.description}
 🕓 ${events.date} | ${events.startTime} ${!events.endTime ? "" : `- ${events.endTime}`}
 📍 ${events.location}
 💶 ${events.price}
@@ -5179,7 +5238,6 @@ ${!events.link ? "" : `<i><a href='${events.link}'>Website</a></i> ↗`}
     const res = sideEventsArray.map((events) => {
       return `
 📌 <b>${events.eventsName}</b>
-✏ ${events.description}
 🕓 ${events.date} | ${events.startTime} ${!events.endTime ? "" : `- ${events.endTime}`}
 📍 ${events.location}
 💶 ${events.price}
@@ -5211,7 +5269,9 @@ bot.action("sideEvents_by_day_15", async (ctx) => {
       ctx.replyWithHTML(
         `Friday, July 15
       
-  ${events.join(``)}`,
+  ${events.join(``)}
+  
+  @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
         {
           disable_web_page_preview: true,
@@ -5231,7 +5291,9 @@ bot.action("sideEvents_by_day_16", async (ctx) => {
       ctx.replyWithHTML(
         `Saturday, July 16
       
-  ${events.join(``)}`,
+  ${events.join(``)}
+  
+  @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
         {
           disable_web_page_preview: true,
@@ -5251,7 +5313,9 @@ bot.action("sideEvents_by_day_17", async (ctx) => {
       ctx.replyWithHTML(
         `Sunday, July 17
       
-  ${events.join(``)}`,
+${events.join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
         {
           disable_web_page_preview: true,
@@ -5271,7 +5335,9 @@ bot.action("sideEvents_by_day_18", async (ctx) => {
       ctx.replyWithHTML(
         `Monday, July 18
         
-    ${res[0].join(``)}`,
+${res[0].join(``)}
+    
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_18")],
           [Markup.button.callback("↩ Back to selection", "back_to_selection")],
@@ -5282,8 +5348,10 @@ bot.action("sideEvents_by_day_18", async (ctx) => {
         ctx.replyWithHTML(
           `Monday, July 18
         
-    ${events.join(`
-    `)}`,
+${events.join(`
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5305,8 +5373,10 @@ bot.action("sideEvents_by_day_19", async (ctx) => {
       ctx.replyWithHTML(
         `Tuesday, July 19
         
-    ${res[0].join(`
-    `)}`,
+${res[0].join(`
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_19")],
           [Markup.button.callback("↩ Back to selection", "back_to_selection")],
@@ -5317,7 +5387,9 @@ bot.action("sideEvents_by_day_19", async (ctx) => {
         ctx.replyWithHTML(
           `Tuesday, July 19
         
-    ${events.join(``)}`,
+${events.join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5338,8 +5410,10 @@ bot.action("sideEvents_by_day_20", async (ctx) => {
       ctx.replyWithHTML(
         `Wednesday, July 20
         
-    ${res[0].join(`
-    `)}`,
+${res[0].join(`
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_20")],
           [Markup.button.callback("↩ Back to selection", "back_to_selection")],
@@ -5372,7 +5446,9 @@ bot.action("sideEvents_by_day_21", async (ctx) => {
       ctx.replyWithHTML(
         `Thursday, July 21
         
-    ${res[0].join(``)}`,
+${res[0].join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_21")],
           [Markup.button.callback("↩ Back to selection", "back_to_selection")],
@@ -5417,8 +5493,10 @@ bot.action("sideEvents_by_day_22", async (ctx) => {
         ctx.replyWithHTML(
           `Friday, July 22
         
-    ${events.join(`
-    `)}`,
+${events.join(`
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5439,7 +5517,9 @@ bot.action("sideEvents_by_day_23", async (ctx) => {
       ctx.replyWithHTML(
         `Saturday, July 23
         
-    ${res[0].join(``)}`,
+${res[0].join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_23")],
@@ -5451,8 +5531,10 @@ bot.action("sideEvents_by_day_23", async (ctx) => {
         ctx.replyWithHTML(
           `Saturday, July 23
         
-    ${events.join(`
-    `)}`,
+${events.join(`
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
           Markup.inlineKeyboard([[Markup.button.callback("↩️ Back to selection", "back_to_selection")]]),
           {
             disable_web_page_preview: true,
@@ -5473,7 +5555,9 @@ bot.action("sideEvents_by_day_24", async (ctx) => {
       ctx.replyWithHTML(
         `Sunday, July 24
         
-    ${res[0].join(``)}`,
+${res[0].join(``)}
+
+@ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("➡ Next", "next_24")],
           [Markup.button.callback("↩ Back to selection", "bact_to_selection")],
@@ -5509,7 +5593,9 @@ bot.action("next_18", async (ctx) => {
         `Monday, July 18
         
     ${res[1].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           ,
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_18")],
@@ -5548,7 +5634,9 @@ bot.action("next_19", async (ctx) => {
       ctx.replyWithHTML(
         `Tuesday, July 19
         
-    ${res[1].join(``)}`,
+    ${res[1].join(``)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_19")],
           [Markup.button.callback("➡ Next", "next_two_19")],
@@ -5587,7 +5675,9 @@ bot.action("next_20", async (ctx) => {
         `Wednesday, July 20
         
     ${res[1].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_20")],
           [Markup.button.callback("➡ Next", "next_two_20")],
@@ -5626,7 +5716,9 @@ bot.action("next_21", async (ctx) => {
         `Thursday, July 21
         
     ${res[1].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_21")],
           [Markup.button.callback("➡ Next", "next_two_21")],
@@ -5665,7 +5757,9 @@ bot.action("next_22", async (ctx) => {
         `Fiday, July 22
         
     ${res[1].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "sideEvents_by_day_22")],
           [Markup.button.callback("➡ Next", "next_22")],
@@ -5705,7 +5799,9 @@ bot.action("next_two_19", async (ctx) => {
         `Tuesday, July 19
         
     ${res[2].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           ,
           [Markup.button.callback("⬅ Prev", "next_19")],
@@ -5720,7 +5816,9 @@ bot.action("next_two_19", async (ctx) => {
         `Tuesday, July 19
         
     ${res[2].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "next_19")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5744,7 +5842,9 @@ bot.action("next_two_20", async (ctx) => {
         `Wednesday, July 20
         
     ${res[2].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "next_20")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5782,7 +5882,9 @@ bot.action("next_two_21", async (ctx) => {
         `Thursday, July 21
         
     ${res[1].join(`
-    `)}`,
+    `)}
+    
+    @ethparisbot stay tuned without leaving telegram.`,
         Markup.inlineKeyboard([
           [Markup.button.callback("⬅ Prev", "next_21")],
           [Markup.button.callback("↩ Bact to select", "back_to_selection")],
@@ -5851,7 +5953,7 @@ bot.command("sideeventsnow", (ctx) => {
     } else if (getDate == 18 && getMonth == 7) {
       const events = sideEvents.july18;
       const nowArrayEvents = events.filter((event) => {
-        if (getTime >= event.startTime && getTime <= getTime <= (!event.endTime ? "00:00" : event.endTime)) {
+        if (getTime >= event.startTime && getTime <= (!event.endTime ? "00:00" : event.endTime)) {
           return event;
         }
       });
@@ -5915,7 +6017,6 @@ bot.command("sideeventsnow", (ctx) => {
   }
   const nowEvents = newEventsArr.map((events) => {
     return `📌 <b>${events.eventsName}</b>
-✏ ${events.description}
 🕓 ${events.date} | ${events.startTime} ${!events.endTime ? "" : `- ${events.endTime}`}
 📍 ${events.location}
 💶 ${events.price}
@@ -5927,7 +6028,9 @@ ${!events.link ? "" : `<i><a href='${events.link}'>Website</a></i> ↗`}
     `Now:
 ${nowEvents.join(`
 
-`)}`,
+`)}
+
+@ethparisbot stay tuned without leaving telegram.`,
     {
       disable_web_page_preview: true,
     }
