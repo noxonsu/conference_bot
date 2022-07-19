@@ -4,12 +4,12 @@ const { readFile, writeFile, unLink } = require("fs").promises;
 let users = [];
 
 const COMMANDS = [
-  // {
-  //   command: "now",
-  //   description: "Current events",
-  // },
   {
-    command: "sideeventsnow",
+    command: "now",
+    description: "Current events",
+  },
+  {
+    command: "whatsup",
     description: "Current side events",
   },
   {
@@ -113,9 +113,10 @@ bot.help((ctx) =>
   ctx.replyWithHTML(`Hi, ${ctx.message.from.username}
 Here's how I can help:
 
+/now - Current events
 /program - Show conference program
 /sideevents - Side events
-/sideeventsnow - Current side events
+/whatsup - Current side events
 /ticket - Buy tickets
 /venue - The Venue
 /help - Show help/main menu
@@ -3235,45 +3236,30 @@ let sideEvents = {
   ],
   july19: [
     {
-      eventsName: "Voulez-vous DeFi avec moi ce soir?",
+      eventsName: "Tuesdao",
       organizer: "",
       date: "2022-07-19",
-      startTime: "19;30",
-      endTime: "02:00",
-      location: "La Démesure sur Seine - 69 Port de la Rapée – 75012, Paris, France",
-      price: "FREE",
-      link: "https://www.eventbrite.fr/e/voulez-vous-defi-avec-moi-ce-soir-tickets-371264069827",
-      description: "Launch event of our analytics and investment platform, with a panel, followed by a party.",
-
-      eventType: "Meetup",
+      startTime: "00:00",
+      endTime: "00:00",
+      location: "London, UK",
+      price: "This is a member-only event.",
+      link: "https://www.tuesdao.xyz/",
+      description: " ",
+      eventType: "Social",
     },
     {
-      eventsName: "ApérO - La crème de la crème of Polygon's ⛵️",
-      organizer: "",
-      date: "2022-07-19",
-      startTime: "17:00",
-      endTime: "21:00",
-      location: "Les Maquereaux - Rive Gauche, 66 Quai d'Austerlitz, 75013 - Paris",
-      price: "FREE",
-      link: "https://www.eventbrite.ch/e/apero-on-la-seine-with-la-creme-de-la-creme-of-polygons-defi-protocols-tickets-382431401617",
-      description:
-        "No tickets for EthCC? No problem! Join us for a traditional Apéro on la Seine with « La crème de la crème » of Polygon’s DeFi protocols",
-
-      eventType: "Party",
-    },
-    {
-      eventsName: "Cafe du Voyageur: An EthCC Cafe for All - Day 1",
+      eventsName: "Ethereum Community Conference",
       organizer: "",
       date: "2022-07-19",
       startTime: "08:00",
-      endTime: "18:00",
-      location: "Nuage Café 14 Rue des Carmes 75005 Paris",
+      endTime: "19-00",
+      location: "Maison de la Mutualité 22 rue Saint Victor 75005 Paris",
       price: "FREE",
-      link: "https://www.eventbrite.com/e/eth-cc-oasis-tickets-378332150647?aff=Metrika",
+      link: "https://ethcc.io/",
       description:
-        "Join us during ETH CC at our workspace cafe, a low-key space for working, meetings, talks, food, drinks, and friendship.",
+        "EthCC (Ethereum Community Conference) will take place in Paris at the Maison de la Mutualité from the 19th to the 21st of July 2022.",
 
-      eventType: "Meetup",
+      eventType: "Conference",
     },
     {
       eventsName: "EthCC (Ethereum Community Conference) - Day 1",
@@ -3290,15 +3276,83 @@ let sideEvents = {
       eventType: "Conference",
     },
     {
-      eventsName: "Eth Comics Cards",
+      eventsName: "ZK Circuit",
       organizer: "",
       date: "2022-07-19",
-      startTime: "09:00",
-      endTime: "",
-      location: "Maison de la Mutualité",
+      startTime: "08:00",
+      endTime: "23:59",
+      location: "Maison de la Mutualité, 24 Rue Saint-Victor, 75005 Paris, France",
       price: "FREE",
-      link: "https://blackpool.finance/events",
-      description: "Don't miss your swag bag.",
+      link: "https://www.eventbrite.com/e/zk-circuit-tickets-378117097417",
+      description:
+        "Hackers meet at each day at a new world renown location in Paris. Hackers can win up too $5,000 in prizes for building Privacy applications on Findora.",
+
+      eventType: "Hackathon",
+    },
+    {
+        eventsName: "Eth Comics Cards",
+        organizer: "",
+        date: "2022-07-19",
+        startTime: "09:00",
+        endTime: "",
+        location: "Pris France",
+        price: "FREE",
+        link: "https://blackpool.finance/events",
+        description: "Don't miss your swag bag.",
+  
+        eventType: "Meetup",
+      },
+      {
+        eventsName: "NEAR SPACE - Day 1",
+        organizer: "",
+        date: "2022-07-19",
+        startTime: "09:00",
+        endTime: "17:00",
+        location: "La Péniche Paris. 2 Quai de la Tournelle, 75005 Paris, France",
+        price: "FREE",
+        link: "https://www.eventbrite.ie/e/near-space-powered-by-near-ua-ethcc-2022-tickets-377552819647",
+        description:
+          "Immerse yourself in three days of networking, workshops, and more hosted by the NEAR ecosystem and its community.",
+  
+        eventType: "Conference",
+      },
+      {
+        eventsName: "Celo Connect Salon @ EthCC Week - Day 2",
+        organizer: "",
+        date: "2022-07-19",
+        startTime: "10:00",
+        endTime: "17:00",
+        location: "8 Rue Frederic Sauton",
+        price: "FREE",
+        link: "https://www.ethccweek.fr/events/celoconnect.com/ethcc2022",
+        description:
+          "Celo Connect Salon is a community space to discuss topics aligned with Celo’s mission of prosperity for everyone.",
+  
+        eventType: "Workshop",
+      },
+      {
+        eventsName: "Web3 Retreat",
+        organizer: "",
+        date: "2022-07-19",
+        startTime: "10:00",
+        endTime: "17:00",
+        location: "Cucina Mutualité, 20 Rue Saint-Victor, 75005 Paris, France",
+        price: "FREE",
+        link: "https://www.eventbrite.co.uk/e/web3-retreat-le-passage-join-us-for-food-coffee-co-work-chill-tickets-378149704947",
+        description:" ",
+        eventType: "Conference",
+      },
+    {
+      eventsName: "Cafe du Voyageur: An EthCC Cafe for All - Day 1",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "08:00",
+      endTime: "18:00",
+      location: "Nuage Café 14 Rue des Carmes 75005 Paris",
+      price: "FREE",
+      link: "https://www.eventbrite.com/e/eth-cc-oasis-tickets-378332150647?aff=Metrika",
+      description:
+        "Join us during ETH CC at our workspace cafe, a low-key space for working, meetings, talks, food, drinks, and friendship.",
 
       eventType: "Meetup",
     },
@@ -3317,20 +3371,6 @@ let sideEvents = {
       eventType: "Meetup",
     },
     {
-      eventsName: "NEAR SPACE - Day 1",
-      organizer: "",
-      date: "2022-07-19",
-      startTime: "09:00",
-      endTime: "17:00",
-      location: "La Péniche Paris. 2 Quai de la Tournelle, 75005 Paris, France",
-      price: "FREE",
-      link: "https://www.eventbrite.ie/e/near-space-powered-by-near-ua-ethcc-2022-tickets-377552819647",
-      description:
-        "Immerse yourself in three days of networking, workshops, and more hosted by the NEAR ecosystem and its community.",
-
-      eventType: "Conference",
-    },
-    {
       eventsName: "ZK Circuit Hackathon",
       organizer: "",
       date: "2022-07-19",
@@ -3344,20 +3384,6 @@ let sideEvents = {
         "Hackers meet at each day at a new world renown location in Paris. Hackers can win up too $5,000 in prizes for building Privacy applications on Findora.",
 
       eventType: "Hackathon",
-    },
-    {
-      eventsName: "Celo Connect Salon @ EthCC Week - Day 2",
-      organizer: "",
-      date: "2022-07-19",
-      startTime: "10:00",
-      endTime: "17:00",
-      location: "8 Rue Frederic Sauton",
-      price: "FREE",
-      link: "https://www.ethccweek.fr/events/celoconnect.com/ethcc2022",
-      description:
-        "Celo Connect Salon is a community space to discuss topics aligned with Celo’s mission of prosperity for everyone.",
-
-      eventType: "Workshop",
     },
     {
       eventsName: "NFT Builders & Collectors Meetup",
@@ -3478,6 +3504,32 @@ let sideEvents = {
       description:
         "An event for decentralized pioneers, leaders, builders, and investors to talk about the future of NFTs and the tokenization of RWAs.",
       eventType: "Meetup",
+    },
+    {
+      eventsName: "Voulez-vous DeFi avec moi ce soir?",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "19;30",
+      endTime: "02:00",
+      location: "La Démesure sur Seine - 69 Port de la Rapée – 75012, Paris, France",
+      price: "FREE",
+      link: "https://www.eventbrite.fr/e/voulez-vous-defi-avec-moi-ce-soir-tickets-371264069827",
+      description: "Launch event of our analytics and investment platform, with a panel, followed by a party.",
+      eventType: "Meetup",
+    },
+    {
+      eventsName: "ApérO - La crème de la crème of Polygon's ⛵️",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "17:00",
+      endTime: "21:00",
+      location: "Les Maquereaux - Rive Gauche, 66 Quai d'Austerlitz, 75013 - Paris",
+      price: "FREE",
+      link: "https://www.eventbrite.ch/e/apero-on-la-seine-with-la-creme-de-la-creme-of-polygons-defi-protocols-tickets-382431401617",
+      description:
+        "No tickets for EthCC? No problem! Join us for a traditional Apéro on la Seine with « La crème de la crème » of Polygon’s DeFi protocols",
+
+      eventType: "Party",
     },
     {
       eventsName: "DeFi Boat Apero",
@@ -5106,64 +5158,64 @@ const zeroTime = (date) => {
   }
 };
 
-// bot.command("now", async (ctx) => {
-//   const nDate = new Date().toLocaleString("ru-RU", {
-//     timeZone: "Europe/Paris",
-//   });
-//   const newDate = nDate.split(" ");
-//   const newTime = newDate[1].split(":");
-//   const getTime = `${zeroTime(newTime[0])}:${zeroTime(newTime[1])}`;
-//   const newGetDate = newDate[0].split(".");
-//   const getDate = newGetDate[0];
-//   const getMonth = newGetDate[1];
-//   const newEvents = () => {
-//     if (getDate == 19 && getMonth == 7) {
-//       const events = programEvents.july19;
-//       const nowArrayEvents = events.filter((event) => {
-//         if (getTime >= event.startTime && getTime <= event.endTime) {
-//           return event;
-//         }
-//       });
-//       return nowArrayEvents;
-//     } else if (getDate == 20 && getMonth == 7) {
-//       const events = programEvents.july20;
-//       const nowArrayEvents = events.filter((event) => {
-//         if (getTime >= event.startTime && getTime <= event.endTime) {
-//           return event;
-//         }
-//       });
-//       return nowArrayEvents;
-//     } else if (getDate == 21 && getMonth == 7) {
-//       const events = programEvents.july21;
-//       const nowArrayEvents = events.filter((event) => {
-//         if (getTime >= event.startTime && getTime <= event.endTime) {
-//           return event;
-//         }
-//       });
-//       return nowArrayEvents;
-//     } else {
-//       return false;
-//     }
-//   };
+bot.command("now", async (ctx) => {
+  const nDate = new Date().toLocaleString("ru-RU", {
+    timeZone: "Europe/Paris",
+  });
+  const newDate = nDate.split(" ");
+  const newTime = newDate[1].split(":");
+  const getTime = `${zeroTime(newTime[0])}:${zeroTime(newTime[1])}`;
+  const newGetDate = newDate[0].split(".");
+  const getDate = newGetDate[0];
+  const getMonth = newGetDate[1];
+  const newEvents = () => {
+    if (getDate == 19 && getMonth == 7) {
+      const events = programEvents.july19;
+      const nowArrayEvents = events.filter((event) => {
+        if (getTime >= event.startTime && getTime <= event.endTime) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
+    } else if (getDate == 20 && getMonth == 7) {
+      const events = programEvents.july20;
+      const nowArrayEvents = events.filter((event) => {
+        if (getTime >= event.startTime && getTime <= event.endTime) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
+    } else if (getDate == 21 && getMonth == 7) {
+      const events = programEvents.july21;
+      const nowArrayEvents = events.filter((event) => {
+        if (getTime >= event.startTime && getTime <= event.endTime) {
+          return event;
+        }
+      });
+      return nowArrayEvents;
+    } else {
+      return false;
+    }
+  };
 
-//   const newEventsArr = newEvents();
-//   if (newEventsArr.length <= 0 || !newEventsArr) {
-//     ctx.replyWithHTML("Porgram list is empty");
-//     return false;
-//   }
-//   const nowEvents = newEventsArr.map((event) => {
-//     return `
-// 📌 <b>${event.eventName}</b>
-// 🗣 ${event.speaker}
-// 🕒 ${event.date} | ${event.startTime} - ${event.endTime} | ${event.duation}
-// 📍 ${event.venue}
-// 📢 ${event.type}`;
-//   });
-//   ctx.replyWithHTML(`Now:
-// ${nowEvents.join(`
+  const newEventsArr = newEvents();
+  if (newEventsArr.length <= 0 || !newEventsArr) {
+    ctx.replyWithHTML("Porgram list is empty");
+    return false;
+  }
+  const nowEvents = newEventsArr.map((event) => {
+    return `
+📌 <b>${event.eventName}</b>
+🗣 ${event.speaker}
+🕒 ${event.date} | ${event.startTime} - ${event.endTime} | ${event.duation}
+📍 ${event.venue}
+📢 ${event.type}`;
+  });
+  ctx.replyWithHTML(`Now:
+${nowEvents.join(`
 
-// `)}`);
-// });
+`)}`);
+});
 
 bot.action("back_to_selection_program", async (ctx) => {
   await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
@@ -5947,7 +5999,7 @@ bot.action("next_two_21", async (ctx) => {
   }
 });
 
-bot.command("sideeventsnow", (ctx) => {
+bot.command("whatsup", (ctx) => {
   const nDate = new Date().toLocaleString("ru-RU", {
     timeZone: "Europe/Paris",
   });
