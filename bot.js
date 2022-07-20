@@ -529,7 +529,7 @@ let programEvents = {
       date: "July 19th",
       startTime: "13:40",
       endTime: "14:05",
-      duation: "@5 min",
+      duation: "25 min",
       venue: "Pontoise",
       eventName: "Going mainstream -- is data sovereignty still a part of web3?",
       speaker: "Henri Stern - Privy",
