@@ -1,7 +1,41 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const { readFile, writeFile, unLink } = require("fs").promises;
-let users = [];
+let usersArr = [
+  { userId: 1, chatId: 654924716, username: "Nasirdin1" },
+  { userId: 2, chatId: 877232233, username: "abda1iev_n" },
+  { userId: 3, chatId: 176410611, username: "NickCZ" },
+  { userId: 4, chatId: 464222613, username: "michaelpetch" },
+  { userId: 5, chatId: 119618870, username: "nadia_semykina" },
+  { userId: 6, chatId: 400381592, username: "ravidsrk" },
+  { userId: 7, chatId: 358771515, username: "jackbasss" },
+  { userId: 8, chatId: 1751786675, username: "defiyeti" },
+  { userId: 9, chatId: 5071844115, username: "patrickworkman" },
+  { userId: 10, chatId: 5065623508, username: "alchuang" },
+  { userId: 11, chatId: 204762587, username: "msbenighted" },
+  { userId: 12, chatId: 139619035, username: "leodavis" },
+  { userId: 13, chatId: 998052083, username: "Jaymondoo" },
+  { userId: 14, chatId: 1399029, username: "adamberker" },
+  { userId: 15, chatId: 570165346, username: "Cryptocurrencywriter" },
+  { userId: 16, chatId: 559846995, username: "aleezagroks" },
+  { userId: 17, chatId: 584964339, username: "nirbhik" },
+  { userId: 18, chatId: 1057984094, username: "nicolaslaw" },
+  { userId: 19, chatId: 1597361767, username: "carlhua" },
+  { userId: 20, chatId: 231707624, username: "neth4n" },
+  { userId: 21, chatId: 667749776, username: "ulydev" },
+  { userId: 22, chatId: 1850291168, username: "mddoxx" },
+  { userId: 23, chatId: 875608110, username: "dhadrien" },
+  { userId: 24, chatId: 549599817, username: "susscrypto" },
+  { userId: 25, chatId: 282771136, username: "felipeasf" },
+  { userId: 26, chatId: 1142799926, username: "morganeyemchx" },
+  { userId: 27, chatId: 136241262, username: "HanaYoosuf" },
+  { userId: 28, chatId: 505394627, username: "Dalucovic" },
+  { userId: 29, chatId: 61513324, username: "jonrouach" },
+  { userId: 30, chatId: 230946876, username: "kaereste" },
+  { userId: 31, chatId: 489492625, username: "CharlesBernard1" },
+  { userId: 32, chatId: 2107590919, username: "Shanekfarrell" },
+  { userId: 33, chatId: 659280182, username: "blahosyl" },
+];
 
 const COMMANDS = [
   {
@@ -44,19 +78,19 @@ const getHelp = () => {
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-const rFile = () => {
-  return readFile(`${__dirname}/users.json`, { encoding: "utf8" }).then((text) => JSON.parse(text));
-};
+// const rFile = () => {
+//   return readFile(`${__dirname}/users.json`, { encoding: "utf8" }).then((text) => JSON.parse(text));
+// };
 
-const wFile = (users) => {
-  writeFile(`${__dirname}/users.json`, JSON.stringify(users), { encoding: "utf8" });
-  return false;
-};
+// const wFile = (users) => {
+//   writeFile(`${__dirname}/users.json`, JSON.stringify(users), { encoding: "utf8" });
+//   return false;
+// };
 
 bot.telegram.setMyCommands(COMMANDS);
 
 bot.start(async (ctx) => {
-  const users = await rFile();
+  const users = usersArr;
   const username = ctx.message.from.username;
   const chatId = ctx.message.chat.id;
   const newUser = {
@@ -65,7 +99,8 @@ bot.start(async (ctx) => {
   };
   if (!users[0]) {
     const newUsers = [{ userId: 1, ...newUser }];
-    wFile(newUsers);
+    usersArr = usersArr;
+    // wFile(newUsers);
   } else {
     let findUser = false;
     users.filter((user) => {
@@ -80,7 +115,8 @@ bot.start(async (ctx) => {
       userId = Math.max(...newArr) + 1;
 
       const newUsers = [...users, { userId, ...newUser }];
-      wFile(newUsers);
+      // wFile(newUsers);
+      usersArr = newUsers;
     }
   }
   ctx.replyWithMarkdown(
@@ -95,16 +131,13 @@ Use the convenient menu to quickly find the information you need👇\n\n` + getH
   );
 });
 bot.command("getallusers", async (ctx) => {
-  const users = await rFile();
+  const users = usersArr;
   const res = users.map((user) => {
-    return `Id: ${user.userId}
-Username: @${user.username}
-ChatId: ${user.chatId}`;
+    return `${user.userId} : @${user.username} | ${user.chatId}`;
   });
   ctx.replyWithHTML(`All users ethparisbot:
 
 ${res.join(`
-
 `)}
 
 Total number of users: ${users.length}`);
@@ -3290,58 +3323,58 @@ let sideEvents = {
       eventType: "Hackathon",
     },
     {
-        eventsName: "Eth Comics Cards",
-        organizer: "",
-        date: "2022-07-19",
-        startTime: "09:00",
-        endTime: "",
-        location: "Pris France",
-        price: "FREE",
-        link: "https://blackpool.finance/events",
-        description: "Don't miss your swag bag.",
-  
-        eventType: "Meetup",
-      },
-      {
-        eventsName: "NEAR SPACE - Day 1",
-        organizer: "",
-        date: "2022-07-19",
-        startTime: "09:00",
-        endTime: "17:00",
-        location: "La Péniche Paris. 2 Quai de la Tournelle, 75005 Paris, France",
-        price: "FREE",
-        link: "https://www.eventbrite.ie/e/near-space-powered-by-near-ua-ethcc-2022-tickets-377552819647",
-        description:
-          "Immerse yourself in three days of networking, workshops, and more hosted by the NEAR ecosystem and its community.",
-  
-        eventType: "Conference",
-      },
-      {
-        eventsName: "Celo Connect Salon @ EthCC Week - Day 2",
-        organizer: "",
-        date: "2022-07-19",
-        startTime: "10:00",
-        endTime: "17:00",
-        location: "8 Rue Frederic Sauton",
-        price: "FREE",
-        link: "https://www.ethccweek.fr/events/celoconnect.com/ethcc2022",
-        description:
-          "Celo Connect Salon is a community space to discuss topics aligned with Celo’s mission of prosperity for everyone.",
-  
-        eventType: "Workshop",
-      },
-      {
-        eventsName: "Web3 Retreat",
-        organizer: "",
-        date: "2022-07-19",
-        startTime: "10:00",
-        endTime: "17:00",
-        location: "Cucina Mutualité, 20 Rue Saint-Victor, 75005 Paris, France",
-        price: "FREE",
-        link: "https://www.eventbrite.co.uk/e/web3-retreat-le-passage-join-us-for-food-coffee-co-work-chill-tickets-378149704947",
-        description:" ",
-        eventType: "Conference",
-      },
+      eventsName: "Eth Comics Cards",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "09:00",
+      endTime: "",
+      location: "Pris France",
+      price: "FREE",
+      link: "https://blackpool.finance/events",
+      description: "Don't miss your swag bag.",
+
+      eventType: "Meetup",
+    },
+    {
+      eventsName: "NEAR SPACE - Day 1",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "09:00",
+      endTime: "17:00",
+      location: "La Péniche Paris. 2 Quai de la Tournelle, 75005 Paris, France",
+      price: "FREE",
+      link: "https://www.eventbrite.ie/e/near-space-powered-by-near-ua-ethcc-2022-tickets-377552819647",
+      description:
+        "Immerse yourself in three days of networking, workshops, and more hosted by the NEAR ecosystem and its community.",
+
+      eventType: "Conference",
+    },
+    {
+      eventsName: "Celo Connect Salon @ EthCC Week - Day 2",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "10:00",
+      endTime: "17:00",
+      location: "8 Rue Frederic Sauton",
+      price: "FREE",
+      link: "https://www.ethccweek.fr/events/celoconnect.com/ethcc2022",
+      description:
+        "Celo Connect Salon is a community space to discuss topics aligned with Celo’s mission of prosperity for everyone.",
+
+      eventType: "Workshop",
+    },
+    {
+      eventsName: "Web3 Retreat",
+      organizer: "",
+      date: "2022-07-19",
+      startTime: "10:00",
+      endTime: "17:00",
+      location: "Cucina Mutualité, 20 Rue Saint-Victor, 75005 Paris, France",
+      price: "FREE",
+      link: "https://www.eventbrite.co.uk/e/web3-retreat-le-passage-join-us-for-food-coffee-co-work-chill-tickets-378149704947",
+      description: " ",
+      eventType: "Conference",
+    },
     {
       eventsName: "Cafe du Voyageur: An EthCC Cafe for All - Day 1",
       organizer: "",
@@ -3821,8 +3854,7 @@ let sideEvents = {
       location: "Cyclone le studio 16 Rue Vulpian 75013 Paris France",
       price: "Free",
       link: " https://neon-labs.org/",
-      description:
-        " ",
+      description: " ",
       eventType: "Event",
     },
     {
@@ -5276,7 +5308,6 @@ const sideEvents_by_day_keyboard = [
     },
   ],
 ];
-
 
 const sideEventsFunc = (sideEventsArray) => {
   if (!sideEventsArray || sideEventsArray.length === 0) {
