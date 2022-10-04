@@ -89,16 +89,6 @@ Use the convenient menu to quickly find the information you need👇\n\n` + getH
   );
 });
 
-const report = async (usersArr, ctx, type) => {
-  try {
-    usersArr.map((user) => {
-      bot.telegram.sendMessage(user.chatId, "hi");
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 let reportMessage = ``;
 
 bot.action("send_report", (ctx) => {
