@@ -144,7 +144,6 @@ Example: /report Hi! user :)`);
   }
 });
 bot.command("getallusers", (ctx) => {
-  report();
   const users = usersArr;
   const res = users.map((user) => {
     return `${user.userId} : @${user.username} | ${user.chatId}`;
