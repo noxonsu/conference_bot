@@ -1,7 +1,13 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const { readFile, writeFile, unLink } = require("fs").promises;
-let usersArr = [];
+let usersArr = [
+  {
+    userid: 1,
+    chatId: 654924716,
+    username: Nasirdin1,
+  }
+];
 
 const COMMANDS = [
   {
