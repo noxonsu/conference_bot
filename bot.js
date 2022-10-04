@@ -3,7 +3,7 @@ require("dotenv").config();
 const { readFile, writeFile, unLink } = require("fs").promises;
 let usersArr = [
   {
-    userid: 1,
+    userId: 1,
     chatId: 654924716,
     username: 'Nasirdin1',
   }
